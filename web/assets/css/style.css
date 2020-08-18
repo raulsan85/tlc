@@ -1,0 +1,69 @@
+/*GENERALES*/
+*{
+    margin: 5px;
+    padding: 0px;
+    font-family: sans-serif, Helvetica, Arial;
+    text-decoration: none;
+}
+
+#selector{
+    width: 80%;
+    height: 410px;
+    margin-left: 15px;
+    padding: 5px;
+    font-size: 14px;
+}
+#selector ul{
+    list-style: none;
+
+}
+#columnas{
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    flex-flow: wrap;
+}
+/* #clientes{
+    float:left;
+    width: 160px;
+    height: auto;
+}
+#contactos{
+    float: left;
+    width: 160px;
+    height: auto;
+}
+
+#webs{
+    float: left;
+    width: 160px;
+    height: auto;
+}
+#caracteristicas{
+    float: left;
+    width: 160px;
+    height: auto;
+}
+
+#seo{
+    float: left;
+    width: 160px;
+    height: auto;
+}
+
+#tematica{
+    float: left;
+    width: 160px;
+    height: auto;
+}
+
+#servicios{
+    float: left;
+    width: 160px;
+    height: auto;
+}
+
+#clear{
+    clear: both;
+}
+*/
