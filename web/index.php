@@ -1,4 +1,31 @@
-<?php require_once 'includes/conexion.php';?>
+<?php 
+require_once 'includes/conexion.php';
+//Carga de autoload
+require_once 'autoload.php';
+
+//Comprobacion de que llega el controlador por la URL
+if(isset($_GET['controller'])){
+    $nombre_controlador = $_GET['controller'].'Controller';
+}else{
+    echo "La página que buscas no existe";
+    exit();
+}
+
+//Comprobacion de que existe el controlador:
+if(class_exists($nombre_controlador)){
+    $controlador = new $nombre_controlador();
+    
+    if(isset($_GET['action'])&& method_exists($controlador, $_GET['action'])){
+        $action = $_GET['action'];
+        $controlador->$action();
+    }else{
+        echo "La página que buscas no existe";
+    }
+}else{
+    echo "La página que buscas no existe";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
