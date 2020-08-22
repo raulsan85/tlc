@@ -85,6 +85,18 @@ class Web{
         return $result;
     }
     
+    //Metodo para mostrar todas las columnas de la tabla webs
+    public function getAll(){
+        $webs = $this->db->query("SELECT * FROM webs ORDER BY web DESC;");
+        return $webs;
+    }
+    
+    //Metodo para mostrar una columna de la tabla webs
+    public function getOne(){
+        $web = $this->db->query("SELECT * FROM webs WHERE id={$this->getId()};");
+        return $web->fetch_object();
+    }
+    
     
 }
 
