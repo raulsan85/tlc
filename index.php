@@ -2,6 +2,9 @@
 //Carga de autoload
 require_once 'autoload.php';
 
+//Carga de los parametros
+require_once 'config/parameters.php';
+
 //Carga de header
 require_once 'views/layout/header.php';
 

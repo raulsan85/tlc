@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+#Activar rewrite:
+RewriteEngine on
+
+#Cual va a ser la URL en la que se va a mostrar el error 404. Creamos un controlador que muestre este error
+ErrorDocument 404 http://localhost/tlc/error/
+
+#Comprobamos que no nos saque las URLs si es un directorio o un fichero. Es decir,
+#no vamos a poder cargar un archivo o un directorio cualquiera en la URL. Solo vamos
+#a poder reescribir URLs:
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+#Reglas de reescritura:
+RewriteRule ^(.*)/(.*) index.php?controller=$1&action=$2
+#Esto significa que cualquier URL que llegue con el formato index.php?... se reescribira
+#poniendo en el primer (.*) lo que haya en $1 y en el segundo (.*) lo que haya en $".
+#Haciendo esto simplemente ya nos deja entrar a /usuario/save por ejemplo, pero no
+#carga correctamente los estilos, porque el sistema de archivos entiende que /usuario/save son 
+#directorios, en lugar de URLs logicas, e intenta acceder a /usuario/save/assets/css...
+# Para eso necesitamos la constante base_url. La requerimos desde el index y en el 
+#header la usamos en las rutas de las imagenes y de los estilos. 
+
+</IfModule>
