@@ -48,11 +48,11 @@ class Web{
     }
 
     function setWeb($web) {
-        $this->web = $web;
+        $this->web = $this->db->real_escape_string($web);
     }
 
     function setUrl($url) {
-        $this->url = $url;
+        $this->url = $this->db->real_escape_string($url);
     }
 
     function setCliente_id($cliente_id) {
@@ -60,11 +60,11 @@ class Web{
     }
 
     function setAno($ano) {
-        $this->ano = $ano;
+        $this->ano = $this->db->real_escape_string($ano);
     }
 
     function setServidor($servidor) {
-        $this->servidor = $servidor;
+        $this->servidor = $this->db->real_escape_string($servidor);
     }
 
     function setDb($db) {
@@ -87,8 +87,8 @@ class Web{
     
     //Metodo para mostrar todas las columnas de la tabla webs
     public function getAll(){
-        $webs = $this->db->query("SELECT * FROM webs ORDER BY web DESC;");
-        return $webs;
+        $todas_webs = $this->db->query("SELECT * FROM webs ORDER BY id DESC;");
+        return $todas_webs;
     }
     
     //Metodo para mostrar una columna de la tabla webs

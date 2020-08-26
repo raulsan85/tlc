@@ -2,6 +2,9 @@
 //Carga de autoload
 require_once 'autoload.php';
 
+//Carga de la base de datos
+require_once 'config/db.php';
+
 //Carga de los parametros
 require_once 'config/parameters.php';
 

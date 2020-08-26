@@ -9,13 +9,12 @@ class webController{
     }
     
     public function mostrar(){
-        if(isset($_POST)){
-            var_dump($_POST);
-            if(isset($_POTS['direccion'])){
-                echo "direccion";
-            }else{
-                echo "NO";
-            }
-        }
+        var_dump($_POST);
+        $web = new Web();
+        //Usamos getAll para conseguir todas:
+        $todas_webs = "Hola";
+        
+        //Cargamos la vista
+        require_once 'views/web/destacados.php';
     }
 }
