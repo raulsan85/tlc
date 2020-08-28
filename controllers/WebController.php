@@ -12,7 +12,7 @@ class webController{
         var_dump($_POST);
         $web = new Web();
         //Usamos getAll para conseguir todas:
-        $todas_webs = "Hola";
+        $todas_webs = $web->getAll();
         
         //Cargamos la vista
         require_once 'views/web/destacados.php';

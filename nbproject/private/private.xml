@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/tlc/controllers/ErrorController.php</file>
+            <file>file:/C:/wamp64/www/tlc/models/web.php</file>
             <file>file:/C:/wamp64/www/tlc/controllers/WebController.php</file>
-            <file>file:/C:/wamp64/www/tlc/views/web/index.php</file>
-            <file>file:/C:/wamp64/www/tlc/config/parameters.php</file>
+            <file>file:/C:/wamp64/www/tlc/config/db.php</file>
             <file>file:/C:/wamp64/www/tlc/views/web/destacados.php</file>
             <file>file:/C:/wamp64/www/tlc/index.php</file>
         </group>

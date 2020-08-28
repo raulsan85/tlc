@@ -87,7 +87,7 @@ class Web{
     
     //Metodo para mostrar todas las columnas de la tabla webs
     public function getAll(){
-        $todas_webs = $this->db->query("SELECT * FROM webs ORDER BY id DESC;");
+        $todas_webs = $this->db->query("SELECT * FROM webs ORDER BY id ASC;");
         return $todas_webs;
     }
     
