@@ -17,4 +17,11 @@ class webController{
         //Cargamos la vista
         require_once 'views/web/destacados.php';
     }
+    
+    public function seleccion(){
+        $web = new Web();
+        $columna_web = $web->getWebs();
+        
+        require_once 'views/web/index.php';
+    }
 }

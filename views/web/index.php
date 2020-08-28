@@ -2,21 +2,11 @@
 
 <table>
     <tr>
-        <th>Id</th>
         <th>Web</th>
-        <th>URL</th>
-        <th>Id de cliente</th>
-        <th>Año</th>
-        <th>Servidor</th>
     </tr>
-    <?php while($wb = $webs->fetch_object()): ?>
+    <?php while($una = $columna_web->fetch_object()): ?>
         <tr>
-            <td><?=$wb->id;?></td>
-            <td><?=$wb->web;?></td>
-            <td><?=$wb->url;?></td>
-            <td><?=$wb->cliente_id;?></td>
-            <td><?=$wb->ano;?></td>
-            <td><?=$wb->servidor;?></td>
+            <td><?=$una->web;?></td>
         </tr>
     <?php endwhile ?>
 </table>

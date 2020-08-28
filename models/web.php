@@ -97,6 +97,11 @@ class Web{
         return $web->fetch_object();
     }
     
+    public function getWebs(){
+        $columna_web = $this->db->query("SELECT web FROM webs;");
+        return $columna_web;
+    }
+    
     
 }
 
