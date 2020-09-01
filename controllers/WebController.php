@@ -20,8 +20,18 @@ class webController{
     
     public function seleccion(){
         $web = new Web();
-        $columna_web = $web->getWebs();
-        
+        if(isset($_POST['web'])){
+            $columna_web = $web->getWebs();
+        }
+        if(isset($_POST['url'])){
+            $columna_url = $web->getUrls();
+        }
+        if(isset($_POST['ano'])){
+            $columna_ano = $web->getAnos();
+        }
+        if(isset($_POST['servidor'])){
+            $columna_servidor = $web->getServidores();
+        }
         require_once 'views/web/index.php';
     }
 }
