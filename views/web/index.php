@@ -9,7 +9,7 @@
         <tr>
             <td><?=$una->web;?></td>
         </tr>
-    <?php endwhile ?>
+    <?php endwhile; ?>
     <?php elseif(isset($columna_url)): ?>
     <tr>
         <th>URL</th>
@@ -18,8 +18,8 @@
         <tr>
             <td><?=$una->url;?></td>
         </tr>
-    <?php endwhile ?>
-    <?php elseif($columna_ano): ?>
+    <?php endwhile; ?>
+    <?php elseif(isset($columna_ano)): ?>
     <tr>
         <th>Año</th>
     </tr>
@@ -27,8 +27,8 @@
         <tr>
             <td><?=$una->ano;?></td>
         </tr>
-    <?php endwhile ?>
-    <?php elseif($columna_servidor): ?>
+    <?php endwhile; ?>
+    <?php elseif(isset($columna_servidor)): ?>
     <tr>
         <th>Servidor</th>
     </tr>
@@ -36,7 +36,7 @@
         <tr>
             <td><?=$una->servidor;?></td>
         </tr>
-    <?php endwhile ?>
+    <?php endwhile; ?>
     <?php endif; ?>
 </table>
     
