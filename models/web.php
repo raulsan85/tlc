@@ -99,25 +99,25 @@ class Web{
     
     //Metodo para mostrar solo la columna Web
     public function getWebs(){
-        $columna_web = $this->db->query("SELECT web FROM webs;");
+        $columna_web = $this->db->query("SELECT web FROM webs ORDER BY id ASC;");
         return $columna_web;
     }
 
     //Metodo para mostrar solo la columna URL    
     public function getUrls(){
-        $columna_url = $this->db->query("SELECT url FROM webs;");
+        $columna_url = $this->db->query("SELECT url FROM webs ORDER BY id ASC;");
         return $columna_url;
     }
 
     //Metodo para mostrar solo la columna Año    
     public function getAnos(){
-        $columna_ano = $this->db->query("SELECT ano FROM webs;");
+        $columna_ano = $this->db->query("SELECT ano FROM webs ORDER BY id ASC;");
         return $columna_ano;
     }    
     
     //Metodo para mostrar solo la columna Servidor    
     public function getServidores(){
-        $columna_servidor = $this->db->query("SELECT servidor FROM webs;");
+        $columna_servidor = $this->db->query("SELECT servidor FROM webs ORDER BY id ASC;");
         return $columna_servidor;
     }    
     
