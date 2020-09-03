@@ -38,13 +38,6 @@ class webController{
     public function horizontal(){
         $web = new Web();
         $cantidad = $web->getAll()->num_rows;
-        for($i=1; $i<=$cantidad; $i++){
-            $web->setId($i);
-            $columna = $web->getOne();
-            var_dump($columna);
-        }
-        var_dump($cantidad);
-        var_dump($columna);
         require_once 'views/web/prueba.php';
     }
 }
