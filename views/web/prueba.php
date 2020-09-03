@@ -1,0 +1,14 @@
+<table>
+    <tr>
+        <th>Web</th>
+        <th>URL</th>
+        <th>Año</th>
+        <th>Servidor</th>
+    </tr>
+    <tr>
+        <td><?=$columna->web?></td>
+        <td><?=$columna->url?></td>
+        <td><?=$columna->ano?></td>
+        <td><?=$columna->servidor?></td>
+    </tr>
+</table>
