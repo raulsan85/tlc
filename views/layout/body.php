@@ -1,6 +1,6 @@
         <h1>Base de datos</h1>
         <div id="selector">
-            <form action="<?=base_url?>web/seleccion" method="POST">
+            <form action="<?=base_url?>web/horizontal" method="POST">
                 <div id="columnas">
                 <div id="clientes">
                     <input type="checkbox" name="clientes"/><b>Clientes:</b>
