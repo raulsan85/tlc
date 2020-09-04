@@ -38,6 +38,6 @@ class webController{
     public function horizontal(){
         $web = new Web();
         $cantidad = $web->getAll()->num_rows;
-        require_once 'views/web/prueba.php';
+        require_once 'views/web/resultados.php';
     }
 }
