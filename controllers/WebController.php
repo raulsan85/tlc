@@ -40,4 +40,12 @@ class webController{
         $cantidad = $web->getAll()->num_rows;
         require_once 'views/web/resultados.php';
     }
+    
+    public function pagina(){
+        $web = new Web();
+        $id = 1;
+        $web->setId($id);
+        $pagina = $web->getOne();
+        require_once 'views/web/pagina_web.php';
+    }
 }
