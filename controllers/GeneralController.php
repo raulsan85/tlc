@@ -13,9 +13,39 @@ class generalController{
         require_once 'views/general/vista_pagina.php';
 
     }
-      
+    
+    public function todos(){
+        $web = new Web();
+        $cantidad_webs = $web->getAll()->num_rows;
+        
+        $cliente = new Cliente();
+        $cantidad_clientes = $cliente->getAll()->num_rows;
+
+        $tematica = new Tematica();
+        $cantidad_tematicas = $tematica->getAll()->num_rows;
+
+        $caracteristica = new Caracteristica();
+        $cantidad_caracteristicas = $caracteristica->getAll()->num_rows;
+
+        $contacto = new Contacto();
+        $cantidad_contactos = $contacto->getAll()->num_rows;
+
+        $servicio = new Servicio();
+        $cantidad_servicioss = $servicio->getAll()->num_rows;
+
+        $seo = new Seo();
+        $cantidad_seos = $seo->getAll()->num_rows;
+
+        $analitica = new Analitica();
+        $cantidad_analiticass = $analitica->getAll()->num_rows;
+
+        $dato_estructurado = new DatoEstructurado();
+        $cantidad_datos = $dato_estructurado->getAll()->num_rows;
+
+        require_once 'views/web/resultados.php';
+    }
+    
     public function pagina(){
-        //$id = 4;
         if(isset($_GET['id'])){
             $id = $_GET['id'];
             $web = new Web();

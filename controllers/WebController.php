@@ -4,7 +4,7 @@ require_once 'models/web.php';
 
 class webController{
     public function index(){
-        require_once 'views/web/destacados.php';
+        require_once 'views/web/resultados.php';
 
     }
     
@@ -15,7 +15,7 @@ class webController{
         $todas_webs = $web->getAll();
         
         //Cargamos la vista
-        require_once 'views/web/destacados.php';
+        require_once 'views/web/resultados.php';
     }
     
     public function seleccion(){
