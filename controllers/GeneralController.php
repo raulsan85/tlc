@@ -15,34 +15,38 @@ class generalController{
     }
       
     public function pagina(){
-        $id = 4;
-        $web = new Web();
-        $web->setId($id);
-        $pagina = $web->getOne();
-        
-        $cliente = new Cliente();
-        $cliente->setId($id);
-        $costumer = $cliente->getOne();
-        
-        $caracteristica = new Caracteristica();
-        $caracteristica->setId($id);
-        $feature = $caracteristica->getOne();
-        
-        $seo = new Seo();
-        $seo->setId($id);
-        $optimizacion = $seo->getOne();
-            
-        $analitica = new Analitica();
-        $analitica->setId($id);
-        $analytics = $analitica->getOne();
-        
-        $servicio = new Servicio();
-        $servicio->setId($id);
-        $service = $servicio->getOne();
+        //$id = 4;
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            $web = new Web();
+            $web->setId($id);
+            $pagina = $web->getOne();
+            $cliente = new Cliente();
+            $cliente->setId($id);
+            $costumer = $cliente->getOne();
 
-        $tematica = new Tematica();
-        $tematica->setId($id);
-        $temas = $tematica->getOne();
+            $caracteristica = new Caracteristica();
+            $caracteristica->setId($id);
+            $feature = $caracteristica->getOne();
+
+            $seo = new Seo();
+            $seo->setId($id);
+            $optimizacion = $seo->getOne();
+
+            $analitica = new Analitica();
+            $analitica->setId($id);
+            $analytics = $analitica->getOne();
+
+            $servicio = new Servicio();
+            $servicio->setId($id);
+            $service = $servicio->getOne();
+
+            $tematica = new Tematica();
+            $tematica->setId($id);
+            $temas = $tematica->getOne();
+        
+        }
+        
         
         require_once 'views/general/vista_pagina.php';
     }

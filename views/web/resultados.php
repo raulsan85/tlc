@@ -10,7 +10,7 @@
             <?php $web->setId($i); ?>
             <?php $columna = $web->getOne(); ?>
     <tr>
-        <td><?=$columna->web?></td>
+        <td><a href="<?=base_url?>general/pagina&id=<?=$columna->id?>"><?=$columna->web?></a></td>
         <td><?=$columna->url?></td>
         <td><?=$columna->ano?></td>
         <td><?=$columna->servidor?></td>
