@@ -7,13 +7,13 @@
     <li>Empresa: <?=$costumer->nombre?></li>
     <li>División: <?=$costumer->division?></li>
     <li>Estado: <?=$costumer->baja?></li>
-    <li>Servicios contratados: </li>
+    <li>Servicios contratados: <?=$service->servicios_contratados?> </li>
 </ul>
 <h3>Datos de la web</h3>
 <ul>
     <li>Año de creación: <?=$pagina->ano?></li>
     <li>Servidor: <?=$pagina->servidor?></li>
-    <li>Temática:</li>
+    <li>Temática: <?=$temas->tematica?></li>
     <li>Tipo de desarrollo: <?=$feature->desarrollo?></li>
     <li>Tipo de web: <?=$feature->tipo?></li>
     <li>Tipo de diseño: <?=$feature->design?></li>

@@ -5,6 +5,8 @@ require_once 'models/cliente.php';
 require_once 'models/caracteristica.php';
 require_once 'models/seo.php';
 require_once 'models/analitica.php';
+require_once 'models/tematica.php';
+require_once 'models/servicio.php';
 
 class generalController{
     public function index(){
@@ -33,6 +35,14 @@ class generalController{
         $analitica = new Analitica();
         $analitica->setId($id);
         $analytics = $analitica->getOne();
+        
+        $servicio = new Servicio();
+        $servicio->setId($id);
+        $service = $servicio->getOne();
+
+        $tematica = new Tematica();
+        $tematica->setId($id);
+        $temas = $tematica->getOne();
         
         require_once 'views/general/vista_pagina.php';
     }
