@@ -188,5 +188,17 @@ class DatoEstructurado{
         $this->db = $db;
     }
 
+    //Metodo para mostrar todas las columnas de la tabla datos estructurados
+    public function getAll(){
+        $todos_datos = $this->db->query("SELECT * FROM datos_estructurados ORDER BY id ASC;");
+        return $todos_datos;
+    }
+    
+    //Metodo para mostrar una columna de la tabla datos estructurados
+    public function getOne(){
+        $dato = $this->db->query("SELECT * FROM datos_estructurados WHERE id={$this->getId()};");
+        return $dato->fetch_object();
+    }
+  
 
 }

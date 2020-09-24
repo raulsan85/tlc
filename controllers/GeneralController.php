@@ -7,6 +7,8 @@ require_once 'models/seo.php';
 require_once 'models/analitica.php';
 require_once 'models/tematica.php';
 require_once 'models/servicio.php';
+require_once 'models/contacto.php';
+require_once 'models/datoEstructurado.php';
 
 class generalController{
     public function index(){
@@ -19,30 +21,22 @@ class generalController{
         $cantidad_webs = $web->getAll()->num_rows;
         
         $cliente = new Cliente();
-        $cantidad_clientes = $cliente->getAll()->num_rows;
 
         $tematica = new Tematica();
-        $cantidad_tematicas = $tematica->getAll()->num_rows;
 
         $caracteristica = new Caracteristica();
-        $cantidad_caracteristicas = $caracteristica->getAll()->num_rows;
 
         $contacto = new Contacto();
-        $cantidad_contactos = $contacto->getAll()->num_rows;
 
         $servicio = new Servicio();
-        $cantidad_servicioss = $servicio->getAll()->num_rows;
 
         $seo = new Seo();
-        $cantidad_seos = $seo->getAll()->num_rows;
 
         $analitica = new Analitica();
-        $cantidad_analiticass = $analitica->getAll()->num_rows;
 
         $dato_estructurado = new DatoEstructurado();
-        $cantidad_datos = $dato_estructurado->getAll()->num_rows;
 
-        require_once 'views/web/resultados.php';
+        require_once 'views/general/destacados.php';
     }
     
     public function pagina(){

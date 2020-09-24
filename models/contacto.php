@@ -80,5 +80,16 @@ class Contacto{
         $this->db = $db;
     }
 
-
+    //Metodo para mostrar todas las columnas de la tabla contactos
+    public function getAll(){
+        $todos_contactos = $this->db->query("SELECT * FROM contactos ORDER BY id ASC;");
+        return $todos_contactos;
+    }
+    
+    //Metodo para mostrar una columna de la tabla contactos
+    public function getOne(){
+        $contacto = $this->db->query("SELECT * FROM contactos WHERE id={$this->getId()};");
+        return $contacto->fetch_object();
+    }
+  
 }

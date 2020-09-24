@@ -120,7 +120,7 @@ class Caracteristica{
     //Metodo para mostrar todas las columnas de la tabla caracteristicas
     public function getAll(){
         $todas_caracteristicas = $this->db->query("SELECT * FROM caracteristicas ORDER BY id ASC;");
-        return $todos_caracteristicas;
+        return $todas_caracteristicas;
     }
     
     //Metodo para mostrar una columna de la tabla clientes
