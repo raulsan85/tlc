@@ -11,9 +11,6 @@ require_once 'config/parameters.php';
 //Carga de header
 require_once 'views/layout/header.php';
 
-//Carga del body
-require_once 'views/layout/body.php';
-
 //Funcion para mostrar el error 404
 function show_error(){
     $error = new errorController();

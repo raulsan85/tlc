@@ -1,8 +1,12 @@
 <?php
 
+require_once 'models/cliente.php';
+
 class clienteController{
     public function index(){
-        echo "hola hola";
+        $cliente = new Cliente();
+        $cantidad = $cliente->getAll()->num_rows;
+        require_once 'views/cliente/index.php';
     }
     
     public function horizontal(){
