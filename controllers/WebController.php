@@ -5,7 +5,7 @@ require_once 'models/web.php';
 class webController{
     public function index(){
         $web = new Web();
-        $cantidad = $web->getAll()->num_rows;
+        $todas_webs = $web->getAll();
         require_once 'views/web/index.php';
 
     }

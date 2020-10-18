@@ -82,7 +82,7 @@ class Contacto{
 
     //Metodo para mostrar todas las columnas de la tabla contactos
     public function getAll(){
-        $todos_contactos = $this->db->query("SELECT * FROM contactos ORDER BY id ASC;");
+        $todos_contactos = $this->db->query("SELECT c.*, cl.nombre AS 'empresa' FROM contactos c INNER JOIN clientes cl ON cl.id=c.cliente_id ORDER BY id ASC;");
         return $todos_contactos;
     }
     

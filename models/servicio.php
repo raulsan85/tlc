@@ -46,7 +46,7 @@ class Servicio{
 
     //Metodo para mostrar todas las columnas de la tabla servicios
     public function getAll(){
-        $todos_servicios = $this->db->query("SELECT * FROM servicios ORDER BY id ASC;");
+        $todos_servicios = $this->db->query("SELECT s.*, cl.nombre AS 'empresa', w.web AS 'web' FROM servicios s INNER JOIN clientes cl ON cl.id=s.cliente_id INNER JOIN webs w ON w.cliente_id=s.cliente_id ORDER BY id ASC;");
         return $todos_servicios;
     }
     

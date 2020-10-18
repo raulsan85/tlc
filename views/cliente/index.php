@@ -12,20 +12,18 @@
         <th>División</th>       
         <th>Teamleader</th>       
     </tr>
-        <?php for($i=1; $i<=$cantidad; $i++): ?>
-                <?php $cliente->setId($i); ?>
-                <?php $columna = $cliente->getOne(); ?>
+        <?php while($clientes = $todos_clientes->fetch_object()): ?>
             <tr>
-                <td><a href="<?=base_url?>general/pagina&id=<?=$columna->id?>"><?=$columna->nombre?></a></td>
-                <td><?=$columna->direccion == NULL ? "N/D" : $columna->direccion?></td>
-                <td><?=$columna->codigo_postal == NULL ? "N/D" : $columna->codigo_postal?></td>
-                <td><?=$columna->ciudad == NULL ? "N/D" : $columna->ciudad?></td>
-                <td><?=$columna->provincia == NULL ? "N/D" : $columna->provincia?></td>
-                <td><?=$columna->pais == NULL ? "N/D" : $columna->pais?></td>
-                <td><?=$columna->fecha_alta == NULL ? "N/D" : $columna->fecha_alta?></td>
-                <td><?=$columna->baja == NULL ? "N/D" : $columna->baja?></td>
-                <td><?=$columna->division == NULL ? "N/D" : $columna->division?></td>
-                <td><?=$columna->teamleader == NULL ? "N/D" : $columna->teamleader?></td>
+                <td><a href="<?=base_url?>general/pagina&id=<?=$clientes->id?>"><?=$clientes->nombre?></a></td>
+                <td><?=$clientes->direccion == NULL ? "N/D" : $clientes->direccion?></td>
+                <td><?=$clientes->codigo_postal == NULL ? "N/D" : $clientes->codigo_postal?></td>
+                <td><?=$clientes->ciudad == NULL ? "N/D" : $clientes->ciudad?></td>
+                <td><?=$clientes->provincia == NULL ? "N/D" : $clientes->provincia?></td>
+                <td><?=$clientes->pais == NULL ? "N/D" : $clientes->pais?></td>
+                <td><?=$clientes->fecha_alta == NULL ? "N/D" : $clientes->fecha_alta?></td>
+                <td><?=$clientes->baja == NULL ? "N/D" : $clientes->baja?></td>
+                <td><?=$clientes->division == NULL ? "N/D" : $clientes->division?></td>
+                <td><?=$clientes->teamleader == NULL ? "N/D" : $clientes->teamleader?></td>
             </tr>
-        <?php endfor;?>
+        <?php endwhile;?>
 </table>

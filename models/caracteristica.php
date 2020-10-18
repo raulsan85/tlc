@@ -119,7 +119,7 @@ class Caracteristica{
 
     //Metodo para mostrar todas las columnas de la tabla caracteristicas
     public function getAll(){
-        $todas_caracteristicas = $this->db->query("SELECT * FROM caracteristicas ORDER BY id ASC;");
+        $todas_caracteristicas = $this->db->query("SELECT c.*, w.web AS 'web' FROM caracteristicas c INNER JOIN webs w ON w.id=c.web_id ORDER BY id ASC;");
         return $todas_caracteristicas;
     }
     

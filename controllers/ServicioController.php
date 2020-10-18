@@ -1,12 +1,12 @@
 <?php
 
-require_once 'models/cliente.php';
+require_once 'models/servicio.php';
 
-class clienteController{
+class ServicioController{
     public function index(){
-        $cliente = new Cliente();
-        $todos_clientes = $cliente->getAll();
-        require_once 'views/cliente/index.php';
+        $servicio = new Servicio();
+        $todos_servicios = $servicio->getAll();
+        require_once 'views/servicio/index.php';
     }
     
     public function horizontal(){

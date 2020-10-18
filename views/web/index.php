@@ -6,15 +6,13 @@
         <th>Año</th>
         <th>Servidor</th>       
     </tr>
-        <?php for($i=1; $i<=$cantidad; $i++): ?>
-                <?php $web->setId($i); ?>
-                <?php $columna = $web->getOne(); ?>
+        <?php while($webs = $todas_webs->fetch_object()): ?>
             <tr>
-                <td><a href="<?=base_url?>general/pagina&id=<?=$columna->id?>"><?=$columna->web?></a></td>
-                <td><?=$columna->url?></td>
-                <td><?=$columna->ano == NULL ? "N/D" : $columna->ano ?></td>
-                <td><?=$columna->servidor?></td>
+                <td><a href="<?=base_url?>general/pagina&id=<?=$webs->id?>"><?=$webs->web?></a></td>
+                <td><?=$webs->url?></td>
+                <td><?=$webs->ano == NULL ? "N/D" : $webs->ano ?></td>
+                <td><?=$webs->servidor?></td>
             </tr>
-        <?php endfor;?>
+        <?php endwhile;?>
 </table>
 

@@ -1,12 +1,12 @@
 <?php
 
-require_once 'models/cliente.php';
+require_once 'models/seo.php';
 
-class clienteController{
+class SeoController{
     public function index(){
-        $cliente = new Cliente();
-        $todos_clientes = $cliente->getAll();
-        require_once 'views/cliente/index.php';
+        $seo = new Seo();
+        $todos_seo = $seo->getAll();
+        require_once 'views/seo/index.php';
     }
     
     public function horizontal(){

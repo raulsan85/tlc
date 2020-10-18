@@ -110,7 +110,7 @@ class Seo{
 
     //Metodo para mostrar todas las columnas de la tabla seo
     public function getAll(){
-        $todos_seo = $this->db->query("SELECT * FROM seo ORDER BY id ASC;");
+        $todos_seo = $this->db->query("SELECT s.*, w.web AS 'web' FROM seo s INNER JOIN webs w ON w.id=s.web_id ORDER BY id ASC;");
         return $todos_seo;
     }
     
