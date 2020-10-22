@@ -54,11 +54,11 @@ class generalController{
             $feature = $caracteristica->getOne();
 
             $seo = new Seo();
-            $seo->setId($id);
+            $seo->setWeb_id($id);
             $optimizacion = $seo->getOne();
 
             $analitica = new Analitica();
-            $analitica->setId($id);
+            $analitica->setWeb_id($id);
             $analytics = $analitica->getOne();
 
             $servicio = new Servicio();
@@ -66,7 +66,7 @@ class generalController{
             $service = $servicio->getOne();
 
             $tematica = new Tematica();
-            $tematica->setId($id);
+            $tematica->setWeb_id($id);
             $temas = $tematica->getOne();
         
         }

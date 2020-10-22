@@ -44,10 +44,15 @@ class webController{
     }
     
     public function pagina(){
-        $web = new Web();
-        $id = 1;
-        $web->setId($id);
-        $pagina = $web->getOne();
-        require_once 'views/web/pagina_web.php';
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            $web = new Web();
+            $web->setId($id);
+            $web = $web->getOne();
+     
+        }
+        
+        
+        require_once 'views/web/vista_pagina.php';
     }
 }

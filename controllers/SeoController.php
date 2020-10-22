@@ -14,4 +14,16 @@ class SeoController{
         $cantidad = $cliente->getAll()->num_rows;
         require_once 'views/cliente/resultados.php';
     }
+    public function pagina(){
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            $seo = new Seo();
+            $seo->setId($id);
+            $seo = $seo->getOne();
+     
+        }
+        
+        
+        require_once 'views/seo/vista_pagina.php';
+    }    
 }

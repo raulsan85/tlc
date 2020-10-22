@@ -14,7 +14,7 @@
     </tr>
         <?php while($clientes = $todos_clientes->fetch_object()): ?>
             <tr>
-                <td><a href="<?=base_url?>general/pagina&id=<?=$clientes->id?>"><?=$clientes->nombre?></a></td>
+                <td><a href="<?=base_url?>cliente/pagina&id=<?=$clientes->id?>"><?=$clientes->nombre?></a></td>
                 <td><?=$clientes->direccion == NULL ? "N/D" : $clientes->direccion?></td>
                 <td><?=$clientes->codigo_postal == NULL ? "N/D" : $clientes->codigo_postal?></td>
                 <td><?=$clientes->ciudad == NULL ? "N/D" : $clientes->ciudad?></td>

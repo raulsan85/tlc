@@ -14,4 +14,16 @@ class clienteController{
         $cantidad = $cliente->getAll()->num_rows;
         require_once 'views/cliente/resultados.php';
     }
+    public function pagina(){
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            $cliente = new Cliente();
+            $cliente->setId($id);
+            $cliente = $cliente->getOne();
+     
+        }
+        
+        
+        require_once 'views/cliente/vista_pagina.php';
+    }
 }

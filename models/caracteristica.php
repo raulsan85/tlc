@@ -123,9 +123,14 @@ class Caracteristica{
         return $todas_caracteristicas;
     }
     
-    //Metodo para mostrar una columna de la tabla clientes
+    //Metodo para mostrar una columna de la tabla caracteristicas
     public function getOne(){
-        $caracteristica = $this->db->query("SELECT * FROM caracteristicas WHERE id={$this->getId()};");
+        $caracteristica = $this->db->query("SELECT c.*, w.web AS 'web', w.url AS 'url' FROM caracteristicas c INNER JOIN webs w ON w.id=c.web_id WHERE c.id={$this->getId()};");
+        /*var_dump($caracteristica);
+        echo $this->db->error;
+        die();
+         * 
+         */
         return $caracteristica->fetch_object();
     }
     

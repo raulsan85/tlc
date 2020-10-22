@@ -12,20 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/tlc/views/layout/body.php</file>
-            <file>file:/C:/wamp64/www/tlc/views/home/home.php</file>
-            <file>file:/C:/wamp64/www/tlc/controllers/WebController.php</file>
-            <file>file:/C:/wamp64/www/tlc/controllers/ClienteController.php</file>
-            <file>file:/C:/wamp64/www/tlc/views/web/resultados.php</file>
-            <file>file:/C:/wamp64/www/tlc/index.php</file>
-            <file>file:/C:/wamp64/www/tlc/views/general/destacados.php</file>
-            <file>file:/C:/wamp64/www/tlc/models/cliente.php</file>
-            <file>file:/C:/wamp64/www/tlc/models/web.php</file>
-            <file>file:/C:/wamp64/www/tlc/views/web/index.php</file>
-            <file>file:/C:/wamp64/www/tlc/config/parameters.php</file>
-            <file>file:/C:/wamp64/www/tlc/views/cliente/index.php</file>
-            <file>file:/C:/wamp64/www/tlc/controllers/GeneralController.php</file>
-            <file>file:/C:/wamp64/www/tlc/controllers/homeController.php</file>
+            <file>file:/C:/wamp64/www/tlc/views/caracteristica/vista_pagina.php</file>
+            <file>file:/C:/wamp64/www/tlc/controllers/CaracteristicaController.php</file>
+            <file>file:/C:/wamp64/www/tlc/models/caracteristica.php</file>
+            <file>file:/C:/wamp64/www/tlc/views/caracteristica/index.php</file>
         </group>
     </open-files>
 </project-private>

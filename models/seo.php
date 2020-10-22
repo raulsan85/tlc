@@ -114,9 +114,14 @@ class Seo{
         return $todos_seo;
     }
     
-    //Metodo para mostrar una columna de la tabla seo
+    //Metodo para mostrar una columna de la tabla clientes
     public function getOne(){
-        $seo = $this->db->query("SELECT * FROM seo WHERE id={$this->getId()};");
+        $seo = $this->db->query("SELECT s.*, w.web AS 'web', w.url AS 'url' FROM seo s INNER JOIN webs w ON w.id=s.web_id WHERE s.id={$this->getId()};");
+        /*var_dump($seo);
+        echo $this->db->error;
+        die();
+         * 
+         */
         return $seo->fetch_object();
     }
 }

@@ -138,7 +138,12 @@ class Cliente{
     
     //Metodo para mostrar una columna de la tabla clientes
     public function getOne(){
-        $cliente = $this->db->query("SELECT * FROM clientes WHERE id={$this->getId()};");
+        $cliente = $this->db->query("SELECT cl.*, w.url AS 'url', c.nombre AS 'nombre_contacto', c.apellidos AS 'apellidos_contacto', c.id AS 'id_contacto'  FROM clientes cl INNER JOIN webs w ON w.cliente_id=cl.id INNER JOIN contactos c ON c.cliente_id=cl.id WHERE c.id={$this->getId()};");
+        /*var_dump($caracteristica);
+        echo $this->db->error;
+        die();
+         * 
+         */
         return $cliente->fetch_object();
     }
     

@@ -17,7 +17,7 @@
     </tr>
         <?php while($seo = $todos_seo->fetch_object()): ?>
             <tr>
-                <td><a href="<?=base_url?>general/pagina&id=<?=$seo->id?>"><?=$seo->web?></a></td>
+                <td><a href="<?=base_url?>seo/pagina&id=<?=$seo->id?>"><?=$seo->web?></a></td>
                 <td><?=$seo->nota == NULL ? "N/D" : $seo->nota?></td>
                 <td><?=$seo->palabras_mas_10_busquedas_19 == NULL ? "N/D" : $seo->palabras_mas_10_busquedas_19?></td>
                 <td><?=$seo->posicion_media_19 == NULL ? "N/D" : $seo->posicion_media_19?></td>
