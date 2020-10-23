@@ -133,5 +133,9 @@ class Caracteristica{
          */
         return $caracteristica->fetch_object();
     }
+    public function getOneGeneral(){
+        $caracteristica = $this->db->query("SELECT * FROM caracteristicas WHERE web_id={$this->getWeb_id()};");
+        return $caracteristica->fetch_object();
+    }
     
 }

@@ -1,8 +1,8 @@
 <?php
 
-class Tematica{
+class Tematica_pivot{
     private $id;
-    private $tematica;
+    private $tematica_id;
     private $web_id;
    
     //Conexion a la bd:
@@ -16,8 +16,8 @@ class Tematica{
         return $this->id;
     }
 
-    function getTematica() {
-        return $this->tematica;
+    function getTematica_id() {
+        return $this->tematica_id;
     }
 
     function getWeb_id() {
@@ -32,8 +32,8 @@ class Tematica{
         $this->id = $id;
     }
 
-    function setTematica($tematica) {
-        $this->tematica = $this->db->real_escape_string($tematica);
+    function setTematica_id($tematica_id) {
+        $this->tematica_id = $tematica_id;
     }
 
     function setWeb_id($web_id) {
@@ -44,16 +44,17 @@ class Tematica{
         $this->db = $db;
     }
 
+    
     //Metodo para mostrar todas las columnas de la tabla webs
     public function getAll(){
-        $todas_tematicas = $this->db->query("SELECT * FROM tematicas ORDER BY id ASC;");
-        return $todas_tematicas;
+        $todas_tematicas_pivot = $this->db->query("SELECT * FROM tematicas_pivot ORDER BY id ASC;");
+        return $todas_tematicas_pivot;
     }
     
     //Metodo para mostrar una columna de la tabla webs
-    public function getOne($web_id){
-        $tematica = $this->db->query("SELECT t.tematica FROM tematicas t INNER JOIN tematicas_pivot tp ON t.id = tp.tematica_id WHERE tp.web_id = {$web_id};");
-        return $tematica->fetch_object();   
+    public function getOne(){
+        $tematica_pivot = $this->db->query("SELECT * FROM tematicas_pivot WHERE id={$this->getId()};");
+        return $tematica_pivot->fetch_object();
     }
     
 }

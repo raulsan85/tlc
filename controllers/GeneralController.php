@@ -6,6 +6,7 @@ require_once 'models/caracteristica.php';
 require_once 'models/seo.php';
 require_once 'models/analitica.php';
 require_once 'models/tematica.php';
+require_once 'models/tematica_pivot.php';
 require_once 'models/servicio.php';
 require_once 'models/contacto.php';
 require_once 'models/datoEstructurado.php';
@@ -44,30 +45,29 @@ class generalController{
             $id = $_GET['id'];
             $web = new Web();
             $web->setId($id);
-            $pagina = $web->getOne();
+            $web = $web->getOne();
+
+            $cliente_id = $web->cliente_id;
             $cliente = new Cliente();
-            $cliente->setId($id);
-            $costumer = $cliente->getOne();
-
-            $caracteristica = new Caracteristica();
-            $caracteristica->setId($id);
-            $feature = $caracteristica->getOne();
-
-            $seo = new Seo();
-            $seo->setWeb_id($id);
-            $optimizacion = $seo->getOne();
-
-            $analitica = new Analitica();
-            $analitica->setWeb_id($id);
-            $analytics = $analitica->getOne();
-
+            $cliente->setId($cliente_id);
+            $cliente = $cliente->getOneGeneral();
+            
             $servicio = new Servicio();
-            $servicio->setId($id);
-            $service = $servicio->getOne();
+            $servicio->setCliente_id($cliente_id);
+            $servicio = $servicio->getOneGeneral();
+            
 
             $tematica = new Tematica();
-            $tematica->setWeb_id($id);
-            $temas = $tematica->getOne();
+            $tematica = $tematica->getOne($id);
+            
+            
+            $caracteristica = new Caracteristica();
+            $caracteristica->setWeb_id($id);
+            $caracteristica = $caracteristica->getOneGeneral();
+            
+            $seo = new Seo();
+            $seo->setWeb_id($id);
+            $seo = $seo->getOneGeneral();
         
         }
         

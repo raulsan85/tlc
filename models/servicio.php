@@ -55,5 +55,8 @@ class Servicio{
         $servicio = $this->db->query("SELECT * FROM servicios WHERE id={$this->getId()};");
         return $servicio->fetch_object();
     }
-
+    public function getOneGeneral(){
+        $servicio = $this->db->query("SELECT * FROM servicios WHERE cliente_id={$this->getCliente_id()};");
+        return $servicio->fetch_object();
+    }
 }

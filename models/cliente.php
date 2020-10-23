@@ -146,7 +146,10 @@ class Cliente{
          */
         return $cliente->fetch_object();
     }
-    
+    public function getOneGeneral(){
+        $cliente = $this->db->query("SELECT * FROM clientes WHERE id={$this->getId()};");
+        return $cliente->fetch_object();
+    }    
     /*
     //Metodo para mostrar solo la columna Web
     public function getWebs(){

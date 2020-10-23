@@ -124,5 +124,9 @@ class Seo{
          */
         return $seo->fetch_object();
     }
+    public function getOneGeneral(){
+        $seo = $this->db->query("SELECT * FROM seo WHERE web_id={$this->getWeb_id()};");
+        return $seo->fetch_object();
+    }
 }
 
