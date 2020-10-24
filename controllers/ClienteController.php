@@ -20,6 +20,9 @@ class clienteController{
             $cliente = new Cliente();
             $cliente->setId($id);
             $cliente = $cliente->getOne();
+            
+            $contacto = new Cliente();
+            $contacto = $contacto->getContactos($id);
      
         }
         

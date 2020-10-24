@@ -19,5 +19,7 @@
 </ul>
 <h3>Contactos</h3>
 <ul>
-    <li>Nombre: <a href="<?=base_url?>contacto/pagina&id=<?=$cliente->id_contacto?>"><?=$cliente->nombre_contacto?> <?=$cliente->apellidos_contacto?></a></li>    
+    <?php while($persona = $contacto->fetch_object()): ?>
+        <li><a href="<?=base_url?>contacto/pagina&id=<?=$persona->id?>"><?=$persona->nombre?> <?=$persona->apellidos?></a></li>
+    <?php endwhile; ?>
 </ul>

@@ -138,7 +138,7 @@ class Cliente{
     
     //Metodo para mostrar una columna de la tabla clientes
     public function getOne(){
-        $cliente = $this->db->query("SELECT cl.*, w.url AS 'url', c.nombre AS 'nombre_contacto', c.apellidos AS 'apellidos_contacto', c.id AS 'id_contacto'  FROM clientes cl INNER JOIN webs w ON w.cliente_id=cl.id INNER JOIN contactos c ON c.cliente_id=cl.id WHERE c.id={$this->getId()};");
+        $cliente = $this->db->query("SELECT cl.*, w.url AS 'url', c.nombre AS 'nombre_contacto', c.apellidos AS 'apellidos_contacto', c.id AS 'id_contacto'  FROM clientes cl INNER JOIN webs w ON w.cliente_id=cl.id INNER JOIN contactos c ON c.cliente_id=cl.id WHERE cl.id={$this->getId()};");
         /*var_dump($caracteristica);
         echo $this->db->error;
         die();
@@ -146,6 +146,13 @@ class Cliente{
          */
         return $cliente->fetch_object();
     }
+    
+    //Metodo para sacar todos los contactos asociados a un cliente
+    public function getContactos($cliente_id){
+        $contacto = $this->db->query("SELECT c.nombre, c.apellidos, c.id FROM contactos c INNER JOIN contactos_pivot cp ON c.id = cp.contacto_id WHERE cp.cliente_id = {$cliente_id};");
+        return $contacto;   
+    }
+    
     public function getOneGeneral(){
         $cliente = $this->db->query("SELECT * FROM clientes WHERE id={$this->getId()};");
         return $cliente->fetch_object();
