@@ -53,7 +53,7 @@ class Tematica{
     //Metodo para mostrar una columna de la tabla webs
     public function getOne($web_id){
         $tematica = $this->db->query("SELECT t.tematica FROM tematicas t INNER JOIN tematicas_pivot tp ON t.id = tp.tematica_id WHERE tp.web_id = {$web_id};");
-        return $tematica->fetch_object();   
+        return $tematica;   
     }
     
 }

@@ -13,7 +13,11 @@
 <ul>
     <li>Año de creación: <?=$web->ano?></li>
     <li>Servidor: <?=$web->servidor?></li>
-    <li>Temática: <?=$tematica->tematica?></li>
+    <li>Temática: 
+        <?php while($tema = $tematica->fetch_object()): ?>
+            <?=$tema->tematica?>
+        <?php endwhile; ?>
+    </li>
     <li>Tipo de desarrollo: <?=$caracteristica->desarrollo?></li>
     <li>Tipo de web: <?=$caracteristica->tipo?></li>
     <li>Tipo de diseño: <?=$caracteristica->design?></li>
