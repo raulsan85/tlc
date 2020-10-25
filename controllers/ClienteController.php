@@ -23,6 +23,10 @@ class clienteController{
             
             $contacto = new Cliente();
             $contacto = $contacto->getContactos($id);
+            
+            $urls = new Cliente();
+            $urls = $urls->getUrls($id);
+            
      
         }
         

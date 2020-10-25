@@ -26,4 +26,15 @@ class CaracteristicaController{
         
         require_once 'views/caracteristica/vista_pagina.php';
     }
+    
+    public function desarrollo(){
+        if(isset($_GET['dev'])){
+            $dev = $_GET['dev'];
+            $desarrollo = new Caracteristica();
+            $todos_desarrollos = $desarrollo->getAllDesarrollo($dev);
+            require_once 'views/caracteristica/vista_desarrollo.php';
+
+        }
+        
+    }
 }

@@ -1,7 +1,9 @@
 <h1><?=$cliente->nombre?></h1>
 
 <h2>Webs</h2>
-<h2><a href="<?=$cliente->url?>"><?=$cliente->url?></a></h2>
+<?php while($url = $urls->fetch_object()): ?>
+    <h2><a href="<?=$url->url?>"><?=$url->url?></a></h2>
+<?php endwhile; ?>
 
 <h3>Datos del cliente</h3>
 <ul>

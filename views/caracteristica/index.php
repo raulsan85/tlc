@@ -15,7 +15,12 @@
         <?php while($caracteristicas = $todas_caracteristicas->fetch_object()): ?>
             <tr>
                 <td><a href="<?=base_url?>caracteristica/pagina&id=<?=$caracteristicas->id?>"><?=$caracteristicas->web?></a></td>
-                <td><?=$caracteristicas->desarrollo == NULL ? "N/D" : $caracteristicas->desarrollo?></td>
+                <td><?php if($caracteristicas->desarrollo == NULL): ?>
+                        N/D
+                    <?php else: ?>
+                        <a href="<?=base_url?>caracteristica/desarrollo&dev=<?=$caracteristicas->desarrollo?>"><?=$caracteristicas->desarrollo?></a>
+                    <?php endif; ?>
+            <?=$caracteristicas->desarrollo == NULL ? "N/D" : $caracteristicas->desarrollo?></td>
                 <td><?=$caracteristicas->tipo == NULL ? "N/D" : $caracteristicas->tipo?></td>
                 <td><?=$caracteristicas->framework == NULL ? "N/D" : $caracteristicas->framework?></td>
                 <td><?=$caracteristicas->theme == NULL ? "N/D" : $caracteristicas->theme?></td>

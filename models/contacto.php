@@ -88,8 +88,14 @@ class Contacto{
     
     //Metodo para mostrar una columna de la tabla contactos
     public function getOne(){
-        $contacto = $this->db->query("SELECT * FROM contactos WHERE id={$this->getId()};");
+        $contacto = $this->db->query("SELECT c.*, cl.nombre AS 'empresa' FROM contactos c INNER JOIN clientes cl ON cl.id = c.cliente_id WHERE c.id={$this->getId()};");
         return $contacto->fetch_object();
+    }
+    
+    //Metodo para sacar todas las urls asociados a un contacto
+    public function getUrls($contacto_id){
+        $urls = $this->db->query("SELECT w.url, cl.id AS 'cliente_id' FROM webs w INNER JOIN clientes cl ON w.cliente_id = cl.id INNER JOIN contactos_pivot cp ON cl.id = cp.cliente_id WHERE cp.contacto_id = {$contacto_id};");
+        return $urls;   
     }
   
 }
