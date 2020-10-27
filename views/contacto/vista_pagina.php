@@ -11,9 +11,9 @@
     
 <h3>Datos del contacto</h3>
 <ul>
-    <li>Nombre: <?=$contacto->nombre?></li>
-    <li>Apellidos: <?=$contacto->apellidos?></li>
-    <li>Cargo: <?=$contacto->cargo?></li>
-    <li>Teléfono: <?=$contacto->telefono?> </li>
-    <li>Email: <?=$contacto->email?> </li>
+    <li>Nombre: <?=$contacto->nombre == NULL ? "N/D" : $contacto->nombre?></li>
+    <li>Apellidos: <?=$contacto->apellidos == NULL ? "N/D" : $contacto->apellidos?></li>
+    <li>Cargo: <?=$contacto->cargo == NULL ? "N/D" : $contacto->cargo?></li>
+    <li>Teléfono: <?=$contacto->telefono == NULL ? "N/D" : $contacto->telefono?></li>
+    <li>Email: <?=$contacto->email == NULL ? "N/D" : $contacto->email?></li>
 </ul>

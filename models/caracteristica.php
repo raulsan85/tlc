@@ -125,10 +125,58 @@ class Caracteristica{
     
     //Metodo para mostrar todas las columnas de cada desarrollo
     public function getAllDesarrollo($dev){
-        $todos_desarrollos = $this->db->query("SELECT c.*, w.web AS 'web' FROM caracteristicas c INNER JOIN webs w ON w.id=c.web_id WHERE c.desarrollo={$dev} ORDER BY id ASC;");
+        $todos_desarrollos = $this->db->query("SELECT c.*, w.web AS 'web' FROM caracteristicas c INNER JOIN webs w ON w.id=c.web_id WHERE c.desarrollo='{$dev}' ORDER BY id ASC;");
         return $todos_desarrollos;
     }
+
+    //Metodo para mostrar todas las columnas de cada tipo
+    public function getAllTipo($kind){
+        $todos_tipos = $this->db->query("SELECT c.*, w.web AS 'web' FROM caracteristicas c INNER JOIN webs w ON w.id=c.web_id WHERE c.tipo='{$kind}' ORDER BY id ASC;");
+        return $todos_tipos;
+    }
+
+    //Metodo para mostrar todas las columnas de cada framework
+    public function getAllFramework($frame){
+        $todos_frameworks = $this->db->query("SELECT c.*, w.web AS 'web' FROM caracteristicas c INNER JOIN webs w ON w.id=c.web_id WHERE c.framework='{$frame}' ORDER BY id ASC;");
+        return $todos_frameworks;
+    }
+
+    //Metodo para mostrar todas las columnas de cada theme
+    public function getAllTheme($theme){
+        $todos_themes = $this->db->query("SELECT c.*, w.web AS 'web' FROM caracteristicas c INNER JOIN webs w ON w.id=c.web_id WHERE c.theme='{$theme}' ORDER BY id ASC;");
+        return $todos_themes;
+    }
+
+    //Metodo para mostrar todas las columnas de cada diseño
+    public function getAllDesign($diseno){
+        $todos_designs = $this->db->query("SELECT c.*, w.web AS 'web' FROM caracteristicas c INNER JOIN webs w ON w.id=c.web_id WHERE c.design='{$diseno}' ORDER BY id ASC;");
+        return $todos_designs;
+    }
+
+    //Metodo para mostrar todas las columnas de cada certificado
+    public function getAllCertificado($ssl){
+        $todos_certificados = $this->db->query("SELECT c.*, w.web AS 'web' FROM caracteristicas c INNER JOIN webs w ON w.id=c.web_id WHERE c.certificado='{$ssl}' ORDER BY id ASC;");
+        return $todos_certificados;
+    }
+
+    //Metodo para mostrar todas las columnas de cada responsive
+    public function getAllResponsive($mov){
+        $todos_responsives = $this->db->query("SELECT c.*, w.web AS 'web' FROM caracteristicas c INNER JOIN webs w ON w.id=c.web_id WHERE c.responsive='{$mov}' ORDER BY id ASC;");
+        return $todos_responsives;
+    }
+
+    //Metodo para mostrar todas las columnas de cada idioma
+    public function getAllIdioma($lang){
+        $todos_idiomas = $this->db->query("SELECT c.*, w.web AS 'web' FROM caracteristicas c INNER JOIN webs w ON w.id=c.web_id WHERE c.idioma='{$lang}' ORDER BY id ASC;");
+        return $todos_idiomas;
+    }
     
+    //Metodo para mostrar todas las columnas de cada seo
+    public function getAllSeo($opt){
+        $todos_seos = $this->db->query("SELECT c.*, w.web AS 'web' FROM caracteristicas c INNER JOIN webs w ON w.id=c.web_id WHERE c.seo='{$opt}' ORDER BY id ASC;");
+        return $todos_seos;
+    }
+
     //Metodo para mostrar una columna de la tabla caracteristicas
     public function getOne(){
         $caracteristica = $this->db->query("SELECT c.*, w.web AS 'web', w.url AS 'url' FROM caracteristicas c INNER JOIN webs w ON w.id=c.web_id WHERE c.id={$this->getId()};");

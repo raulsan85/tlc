@@ -20,15 +20,55 @@
                     <?php else: ?>
                         <a href="<?=base_url?>caracteristica/desarrollo&dev=<?=$caracteristicas->desarrollo?>"><?=$caracteristicas->desarrollo?></a>
                     <?php endif; ?>
-            <?=$caracteristicas->desarrollo == NULL ? "N/D" : $caracteristicas->desarrollo?></td>
-                <td><?=$caracteristicas->tipo == NULL ? "N/D" : $caracteristicas->tipo?></td>
-                <td><?=$caracteristicas->framework == NULL ? "N/D" : $caracteristicas->framework?></td>
-                <td><?=$caracteristicas->theme == NULL ? "N/D" : $caracteristicas->theme?></td>
-                <td><?=$caracteristicas->design == NULL ? "N/D" : $caracteristicas->design?></td>
-                <td><?=$caracteristicas->certificado == NULL ? "N/D" : $caracteristicas->certificado?></td>
-                <td><?=$caracteristicas->responsive == NULL ? "N/D" : $caracteristicas->responsive?></td>
-                <td><?=$caracteristicas->idiomas == NULL ? "N/D" : $caracteristicas->idiomas?></td>
-                <td><?=$caracteristicas->seo == NULL ? "N/D" : $caracteristicas->seo?></td>
+                </td>
+                <td><?php if($caracteristicas->tipo == NULL): ?>
+                        N/D
+                    <?php else: ?>
+                        <a href="<?=base_url?>caracteristica/tipo&kind=<?=$caracteristicas->tipo?>"><?=$caracteristicas->tipo?></a>
+                    <?php endif; ?>
+                </td>
+                <td><?php if($caracteristicas->framework == NULL): ?>
+                        N/D
+                    <?php else: ?>
+                        <a href="<?=base_url?>caracteristica/framework&frame=<?=$caracteristicas->framework?>"><?=$caracteristicas->framework?></a>
+                    <?php endif; ?>
+                </td>
+                <td><?php if($caracteristicas->theme == NULL): ?>
+                        N/D
+                    <?php else: ?>
+                        <a href="<?=base_url?>caracteristica/theme&tema=<?=$caracteristicas->theme?>"><?=$caracteristicas->theme?></a>
+                    <?php endif; ?>
+                </td>
+                <td><?php if($caracteristicas->design == NULL): ?>
+                        N/D
+                    <?php else: ?>
+                        <a href="<?=base_url?>caracteristica/design&diseno=<?=$caracteristicas->design?>"><?=$caracteristicas->design?></a>
+                    <?php endif; ?>
+                </td>
+                <td><?php if($caracteristicas->certificado == NULL): ?>
+                        N/D
+                    <?php else: ?>
+                        <a href="<?=base_url?>caracteristica/certificado&ssl=<?=$caracteristicas->certificado?>"><?=$caracteristicas->certificado?></a>
+                    <?php endif; ?>
+                </td>
+                <td><?php if($caracteristicas->responsive == NULL): ?>
+                        N/D
+                    <?php else: ?>
+                        <a href="<?=base_url?>caracteristica/responsive&mov=<?=$caracteristicas->responsive?>"><?=$caracteristicas->responsive?></a>
+                    <?php endif; ?>
+                </td>
+                <td><?php if($caracteristicas->idiomas == NULL): ?>
+                        N/D
+                    <?php else: ?>
+                        <a href="<?=base_url?>caracteristica/idioma&lang=<?=$caracteristicas->idiomas?>"><?=$caracteristicas->idiomas?></a>
+                    <?php endif; ?>
+                </td>
+                <td><?php if($caracteristicas->seo == NULL): ?>
+                        N/D
+                    <?php else: ?>
+                        <a href="<?=base_url?>caracteristica/seo&opt=<?=$caracteristicas->seo?>"><?=$caracteristicas->seo?></a>
+                    <?php endif; ?>
+                </td>
             </tr>
         <?php endwhile;?>
 </table>

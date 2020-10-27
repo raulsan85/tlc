@@ -17,49 +17,49 @@
                 <td><?php if($desarrollos->tipo == NULL): ?>
                         N/D
                     <?php else: ?>
-                        <a href="<?=base_url?>caracteristica/desarrollo&dev=<?=$desarrollos->tipo?>"><?=$desarrollos->tipo?></a>
+                        <a href="<?=base_url?>caracteristica/tipo&kind=<?=$desarrollos->tipo?>"><?=$desarrollos->tipo?></a>
                     <?php endif; ?>
                 </td>
                 <td><?php if($desarrollos->framework == NULL): ?>
                         N/D
                     <?php else: ?>
-                        <a href="<?=base_url?>caracteristica/desarrollo&dev=<?=$desarrollos->framework?>"><?=$desarrollos->framework?></a>
+                        <a href="<?=base_url?>caracteristica/framework&frame=<?=$desarrollos->framework?>"><?=$desarrollos->framework?></a>
                     <?php endif; ?>
                 </td>
                 <td><?php if($desarrollos->theme == NULL): ?>
                         N/D
                     <?php else: ?>
-                        <a href="<?=base_url?>caracteristica/desarrollo&dev=<?=$desarrollos->theme?>"><?=$desarrollos->theme?></a>
+                        <a href="<?=base_url?>caracteristica/theme&tema=<?=$desarrollos->theme?>"><?=$desarrollos->theme?></a>
                     <?php endif; ?>
                 </td>
                 <td><?php if($desarrollos->design == NULL): ?>
                         N/D
                     <?php else: ?>
-                        <a href="<?=base_url?>caracteristica/desarrollo&dev=<?=$desarrollos->design?>"><?=$desarrollos->design?></a>
+                        <a href="<?=base_url?>caracteristica/design&diseno=<?=$desarrollos->design?>"><?=$desarrollos->design?></a>
                     <?php endif; ?>
                 </td>
                 <td><?php if($desarrollos->certificado == NULL): ?>
                         N/D
                     <?php else: ?>
-                        <a href="<?=base_url?>caracteristica/desarrollo&dev=<?=$desarrollos->certificado?>"><?=$desarrollos->certificado?></a>
+                        <a href="<?=base_url?>caracteristica/certificado&ssl=<?=$desarrollos->certificado?>"><?=$desarrollos->certificado?></a>
                     <?php endif; ?>
                 </td>
                 <td><?php if($desarrollos->responsive == NULL): ?>
                         N/D
                     <?php else: ?>
-                        <a href="<?=base_url?>caracteristica/desarrollo&dev=<?=$desarrollos->responsive?>"><?=$desarrollos->responsive?></a>
+                        <a href="<?=base_url?>caracteristica/responsive&mov=<?=$desarrollos->responsive?>"><?=$desarrollos->responsive?></a>
                     <?php endif; ?>
                 </td>
                 <td><?php if($desarrollos->idiomas == NULL): ?>
                         N/D
                     <?php else: ?>
-                        <a href="<?=base_url?>caracteristica/desarrollo&dev=<?=$desarrollos->idiomas?>"><?=$desarrollos->idiomas?></a>
+                        <a href="<?=base_url?>caracteristica/idioma&lang=<?=$desarrollos->idiomas?>"><?=$desarrollos->idiomas?></a>
                     <?php endif; ?>
                 </td>
-                <td><?php if($desarrollos->optimizacion == NULL): ?>
+                <td><?php if($desarrollos->seo == NULL): ?>
                         N/D
                     <?php else: ?>
-                        <a href="<?=base_url?>caracteristica/desarrollo&dev=<?=$desarrollos->optimizacion?>"><?=$desarrollos->optimizacion?></a>
+                        <a href="<?=base_url?>caracteristica/seo&opt=<?=$desarrollos->seo?>"><?=$desarrollos->seo?></a>
                     <?php endif; ?>
 
             </tr>
