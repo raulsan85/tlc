@@ -135,7 +135,37 @@ class Cliente{
         $todos_clientes = $this->db->query("SELECT * FROM clientes ORDER BY id ASC;");
         return $todos_clientes;
     }
+
+    //Metodo para mostrar todas las columnas de cada codigo postal
+    public function getAllCp($cp){
+        $todos_codigos = $this->db->query("SELECT * FROM clientes WHERE codigo_postal='{$cp}' ORDER BY id ASC;");
+        return $todos_codigos;
+    }
+
+    //Metodo para mostrar todas las columnas de cada ciudad
+    public function getAllCiudad($city){
+        $todas_ciudades= $this->db->query("SELECT * FROM clientes WHERE ciudad='{$city}' ORDER BY id ASC;");
+        return $todas_ciudades;
+    }
     
+    //Metodo para mostrar todas las columnas de cada provincia
+    public function getAllProvincia($prov){
+        $todas_provincias= $this->db->query("SELECT * FROM clientes WHERE provincia='{$prov}' ORDER BY id ASC;");
+        return $todas_provincias;
+    }
+
+    //Metodo para mostrar todas las columnas de cada baja
+    public function getAllBaja($est){
+        $todas_bajas= $this->db->query("SELECT * FROM clientes WHERE baja='{$est}' ORDER BY id ASC;");
+        return $todas_bajas;
+    }
+    
+    //Metodo para mostrar todas las columnas de cada division
+    public function getAllDivision($div){
+        $todas_divisiones = $this->db->query("SELECT * FROM clientes WHERE division='{$div}' ORDER BY id ASC;");
+        return $todas_divisiones;
+    }
+
     //Metodo para mostrar una columna de la tabla clientes
     public function getOne(){
         $cliente = $this->db->query("SELECT * FROM clientes  WHERE id={$this->getId()};");

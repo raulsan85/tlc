@@ -15,7 +15,12 @@
                 <td><?=$contactos->cargo == NULL ? "N/D" : $contactos->cargo?></td>
                 <td><?=$contactos->telefono == NULL ? "N/D" : $contactos->telefono?></td>
                 <td><?=$contactos->email == NULL ? "N/D" : $contactos->email?></td>
-                <td><?=$contactos->empresa == NULL ? "N/D" : $contactos->empresa?></td>
+                <td><?php if($contactos->empresa == NULL): ?>
+                        N/D
+                    <?php else: ?>
+                        <a href="<?=base_url?>cliente/pagina&id=<?=$contactos->cliente_id?>"><?=$contactos->empresa?></a>
+                    <?php endif; ?>
+                </td>
             </tr>
         <?php endwhile;?>
 </table>

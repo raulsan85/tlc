@@ -14,4 +14,16 @@ class ServicioController{
         $cantidad = $cliente->getAll()->num_rows;
         require_once 'views/cliente/resultados.php';
     }
+    
+    public function servicio(){
+        if(isset($_GET['serv'])){
+            $serv = $_GET['serv'];
+            $servicio = new Servicio();
+            $todos_servicios = $servicio->getAllServicio($serv);
+            require_once 'views/servicio/vista_servicio.php';
+
+        }
+        
+    }
+
 }

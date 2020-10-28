@@ -167,7 +167,7 @@ class Caracteristica{
 
     //Metodo para mostrar todas las columnas de cada idioma
     public function getAllIdioma($lang){
-        $todos_idiomas = $this->db->query("SELECT c.*, w.web AS 'web' FROM caracteristicas c INNER JOIN webs w ON w.id=c.web_id WHERE c.idioma='{$lang}' ORDER BY id ASC;");
+        $todos_idiomas = $this->db->query("SELECT c.*, w.web AS 'web' FROM caracteristicas c INNER JOIN webs w ON w.id=c.web_id WHERE c.idiomas='{$lang}' ORDER BY id ASC;");
         return $todos_idiomas;
     }
     

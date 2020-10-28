@@ -50,6 +50,13 @@ class Servicio{
         return $todos_servicios;
     }
     
+    //Metodo para mostrar todas las columnas de cada servicio
+    public function getAllServicio($serv){
+        $todos_servicios = $this->db->query("SELECT s.*, cl.nombre AS 'empresa', w.web AS 'web', w.id AS 'web_id' FROM servicios s INNER JOIN clientes cl ON cl.id=s.cliente_id INNER JOIN webs w ON w.cliente_id=s.cliente_id WHERE servicios_contratados='{$serv}' ORDER BY id ASC;");
+        return $todos_servicios;
+    }
+
+    
     //Metodo para mostrar una columna de la tabla servicios
     public function getOne(){
         $servicio = $this->db->query("SELECT * FROM servicios WHERE id={$this->getId()};");

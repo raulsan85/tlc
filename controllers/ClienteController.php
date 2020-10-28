@@ -33,4 +33,60 @@ class clienteController{
         
         require_once 'views/cliente/vista_pagina.php';
     }
+
+    public function codigo(){
+        if(isset($_GET['cp'])){
+            $cp = $_GET['cp'];
+            $codigo = new Cliente();
+            $todos_codigos = $codigo->getAllCp($cp);
+            require_once 'views/cliente/vista_codigo.php';
+
+        }
+        
+    }
+    
+    public function ciudad(){
+        if(isset($_GET['city'])){
+            $city = $_GET['city'];
+            $ciudad = new Cliente();
+            $todas_ciudades = $ciudad->getAllCiudad($city);
+            require_once 'views/cliente/vista_ciudad.php';
+
+        }
+        
+    }
+
+    public function provincia(){
+        if(isset($_GET['prov'])){
+            $prov = $_GET['prov'];
+            $provincia = new Cliente();
+            $todas_provincias = $provincia->getAllProvincia($prov);
+            require_once 'views/cliente/vista_provincia.php';
+
+        }
+        
+    }
+
+    public function baja(){
+        if(isset($_GET['est'])){
+            $est = $_GET['est'];
+            $baja = new Cliente();
+            $todas_bajas = $baja->getAllBaja($est);
+            require_once 'views/cliente/vista_baja.php';
+
+        }
+        
+    }
+
+    public function division(){
+        if(isset($_GET['div'])){
+            $div = $_GET['div'];
+            $division = new Cliente();
+            $todas_divisiones = $division->getAllDivision($div);
+            require_once 'views/cliente/vista_division.php';
+
+        }
+        
+    }
+
 }
