@@ -46,7 +46,15 @@ class Tematica{
 
     //Metodo para mostrar todas las columnas de la tabla webs
     public function getAll(){
-        $todas_tematicas = $this->db->query("SELECT * FROM tematicas ORDER BY id ASC;");
+        $todas_tematicas = $this->db->query("SELECT t.tematica AS 'tematica', w.url AS 'web', tp.web_id AS 'web_id' FROM tematicas t INNER JOIN tematicas_pivot tp ON tp.tematica_id=t.id INNER JOIN webs w ON tp.web_id=w.id ORDER BY w.id ASC;");
+        echo $this->db->error;
+        return $todas_tematicas;
+    }
+
+    //Metodo para mostrar todas las columnas de cada tematica
+    public function getAllTematica($tem){
+        $todas_tematicas = $this->db->query("SELECT w.web AS 'web', w.id AS 'web_id', w.url AS 'url' FROM webs w INNER JOIN tematicas_pivot tp ON w.id=tp.web_id INNER JOIN tematicas t ON tp.tematica_id=t.id WHERE t.tematica='{$tem}' ORDER BY w.id ASC;");
+        echo $this->db->error;
         return $todas_tematicas;
     }
     

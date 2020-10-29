@@ -4,7 +4,12 @@
 
 <h3>Datos de la empresa</h3>
 <ul>
-    <li>Empresa: <?=$cliente->nombre == NULL ? "N/D" : $cliente->nombre?></li>
+    <li>Empresa:    
+        <?php if($cliente->nombre == NULL): ?>
+            N/D
+        <?php else: ?>
+            <a href="<?=base_url?>cliente/pagina&id=<?=$cliente->id?>"><?=$cliente->nombre?></a>
+        <?php endif; ?>
     <li>División: <?=$cliente->division == NULL ? "N/D" : $cliente->division?></li>
     <li>Estado: <?=$cliente->baja == NULL ? "N/D" : $cliente->baja?></li>
     <li>Servicios contratados: <?=$servicio->servicios_contratados == NULL ? "N/D" : $servicio->servicios_contratados?></li>
@@ -14,9 +19,11 @@
     <li>Año de creación: <?=$web->ano == NULL ? "N/D" : $web->ano?></li>
     <li>Servidor: <?=$web->servidor == NULL ? "N/D" : $web->servidor?></li>
     <li>Temática: 
-        <?php while($tema = $tematica->fetch_object()): ?>
-            <?=$tema->tematica?>
-        <?php endwhile; ?>
+        <ul>
+            <?php while($tema = $tematica->fetch_object()): ?>
+            <li><?=$tema->tematica?></li>
+            <?php endwhile; ?>
+        </ul>
     </li>
     <li>Tipo de desarrollo: <?=$caracteristica->desarrollo == NULL ? "N/D" : $caracteristica->desarrollo?></li>
     <li>Tipo de web: <?=$caracteristica->tipo == NULL ? "N/D" : $caracteristica->tipo?></li>

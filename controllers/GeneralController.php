@@ -6,7 +6,6 @@ require_once 'models/caracteristica.php';
 require_once 'models/seo.php';
 require_once 'models/analitica.php';
 require_once 'models/tematica.php';
-require_once 'models/tematica_pivot.php';
 require_once 'models/servicio.php';
 require_once 'models/contacto.php';
 require_once 'models/datoEstructurado.php';
