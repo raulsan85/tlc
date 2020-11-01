@@ -15,7 +15,10 @@ class TematicaController{
             $tematica = new Tematica();
             $tematica->setId($id);
             $tematica = $tematica->getOne($id);
-     
+            $web = new Tematica();
+            $web->setId($id);
+            $web = $web->getOne($id);
+            
         }
         
         

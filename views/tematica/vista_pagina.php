@@ -1,7 +1,7 @@
-<?php $tematicas = $tematica->fetch_object(); ?>
-<h1><?=$tematicas->web?></h1>
+<?php $web = $web->fetch_object(); ?>
+<h1><?=$web->web?></h1>
 
-<h2><a href="<?=$tematicas->url?>"><?=$tematicas->url?></a></h2>    
+<h2><a href="<?=$web->url?>"><?=$web->url?></a></h2>    
 <h3>Temáticas:</h3> 
     <ul>
         <?php while($tematicas = $tematica->fetch_object()): ?>

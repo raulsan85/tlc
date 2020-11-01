@@ -15,6 +15,9 @@ class DatoController{
             $dato = new DatoEstructurado();
             $dato->setId($id);
             $dato = $dato->getOne($id);
+            $web = new DatoEstructurado();
+            $web->setId($id);
+            $web= $web->getOne($id);
      
         }
         
