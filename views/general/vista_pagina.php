@@ -60,32 +60,34 @@
 <h4>Analíticas</h4>
 <p>2019</p>
 <ul>
-    <li>Visitas: </li>
-    <li>Tasa de rebote total:  </li>
-    <li>Tasa de rebote en ordenador:  </li>
-    <li>Tasa de rebote en móvil:  </li>
-    <li>Tiempo medio de sesión:  </li>
-    <li>Páginas por sesión:  </li>
+    <li>Visitas: <?=$analitica->visitas_19 == NULL ? "N/D" : $analitica->visitas_19?></li>
+    <li>Tasa de rebote total:  <?=$analitica->rebote_19 == NULL ? "N/D" : $analitica->rebote_19?></li>
+    <li>Tasa de rebote en ordenador:  <?=$analitica->rebote_desk_19 == NULL ? "N/D" : $analitica->rebote_desk_19?></li>
+    <li>Tasa de rebote en móvil:  <?=$analitica->rebote_mob_19 == NULL ? "N/D" : $analitica->rebote_mob_19?></li>
+    <li>Tiempo medio de sesión:  <?=$analitica->tiempo_sesion_19 == NULL ? "N/D" : $analitica->tiempo_sesion_19?></li>
+    <li>Páginas por sesión:  <?=$analitica->paginas_sesion_19 == NULL ? "N/D" : $analitica->paginas_sesion_19?></li>
 </ul>
 <p>2020</p>
 <ul>
-    <li>Visitas:  </li>
-    <li>Tasa de rebote total: </li>
-    <li>Tasa de rebote en ordenador:  </li>
-    <li>Tasa de rebote en móvil:  </li>
-    <li>Tiempo medio de sesión: </li>
-    <li>Páginas por sesión: </li>
+    <li>Visitas:  <?=$analitica->visitas_20 == NULL ? "N/D" : $analitica->visitas_20?></li>
+    <li>Tasa de rebote total: <?=$analitica->rebote_20 == NULL ? "N/D" : $analitica->rebote_20?></li>
+    <li>Tasa de rebote en ordenador:  <?=$analitica->rebote_desk_20 == NULL ? "N/D" : $analitica->rebote_desk_20?></li>
+    <li>Tasa de rebote en móvil:  <?=$analitica->rebote_mob_20 == NULL ? "N/D" : $analitica->rebote_mob_20?></li>
+    <li>Tiempo medio de sesión: <?=$analitica->tiempo_sesion_20 == NULL ? "N/D" : $analitica->tiempo_sesion_20?></li>
+    <li>Páginas por sesión: <?=$analitica->paginas_sesion_19 == NULL ? "N/D" : $analitica->paginas_sesion_19?></li>
 </ul>
 <h4>PageSpeed</h4>
-<p>2019</p>
+<p>2020</p>
 <ul>
-    <li>Tiempo de carga: </li>
-    <li>First Byte:  </li>
-    <li>Repeat View:  </li>
-    <li>Puntuación PageSpeed Ordenador: </li>
-    <li>Puntuación PageSpeed Móvil:  </li>
+    <li>Tiempo de carga: <?=$analitica->tiempo_carga_20 == NULL ? "N/D" : $analitica->tiempo_carga_20?></li>
+    <li>First Byte:  <?=$analitica->first_byte_20 == NULL ? "N/D" : $analitica->first_byte_20?></li>
+    <li>Repeat View:  <?=$analitica->repeat_view_20 == NULL ? "N/D" : $analitica->repeat_view_20?></li>
+    <li>Puntuación PageSpeed Ordenador: <?=$analitica->pagespeed_desk_20 == NULL ? "N/D" : $analitica->pagespeed_desk_20?></li>
+    <li>Puntuación PageSpeed Móvil:  <?=$analitica->pagespeed_mob_20 == NULL ? "N/D" : $analitica->pagespeed_mob_20?></li>
 </ul>
 <h4>Datos Estructurados</h4>
 <ul>
-    <li></li>
+        <?php while($dato = $dato_estructurado->fetch_object()): ?>
+        <li><?=$dato->dato?></li>
+        <?php endwhile; ?>
 </ul>

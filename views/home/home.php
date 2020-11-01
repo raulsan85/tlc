@@ -6,4 +6,6 @@
 <a href="<?=base_url?>caracteristica/index">Características de las Webs</a></br>
 <a href="<?=base_url?>seo/index">SEO de las Webs</a></br>
 <a href="<?=base_url?>tematica/index">Temáticas</a></br>
-<a href="<?=base_url?>web/index">Webs</a>
+<a href="<?=base_url?>web/index">Webs</a></br>
+<a href="<?=base_url?>analitica/index">Analíticas</a></br>
+<a href="<?=base_url?>dato/index">Datos Estructurados</a>

@@ -6,7 +6,7 @@
     </tr>
         <?php while($tematicas = $todas_tematicas->fetch_object()): ?>
             <tr>
-                <td><a href="<?=base_url?>general/pagina&id=<?=$tematicas->web_id?>"><?=$tematicas->web?></a></td>
+                <td><a href="<?=base_url?>tematica/pagina&id=<?=$tematicas->web_id?>"><?=$tematicas->web?></a></td>
                 <td><?php if($tematicas->tematica == NULL): ?>
                       N/D
                   <?php else: ?>

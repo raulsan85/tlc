@@ -12,14 +12,14 @@ class TematicaController{
     public function pagina(){
         if(isset($_GET['id'])){
             $id = $_GET['id'];
-            $caracteristica = new Caracteristica();
-            $caracteristica->setId($id);
-            $caracteristica = $caracteristica->getOne();
+            $tematica = new Tematica();
+            $tematica->setId($id);
+            $tematica = $tematica->getOne($id);
      
         }
         
         
-        require_once 'views/caracteristica/vista_pagina.php';
+        require_once 'views/tematica/vista_pagina.php';
     }
 
     public function tematicas(){

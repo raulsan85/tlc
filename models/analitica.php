@@ -190,13 +190,22 @@ class Analitica{
 
     //Metodo para mostrar todas las columnas de la tabla analiticas
     public function getAll(){
-        $todas_analiticas = $this->db->query("SELECT * FROM analiticas ORDER BY id ASC;");
+        $todas_analiticas = $this->db->query("SELECT a.*, w.web AS 'web' FROM analiticas a INNER JOIN webs w ON w.id=a.web_id ORDER BY w.web ASC;");
         return $todas_analiticas;
     }
     
     //Metodo para mostrar una columna de la tabla analiticas
     public function getOne(){
-        $analitica = $this->db->query("SELECT * FROM analiticas WHERE id={$this->getId()};");
+        $analitica = $this->db->query("SELECT a.*, w.web AS 'web', w.url AS 'url' FROM analiticas a INNER JOIN webs w ON w.id=a.web_id WHERE a.id={$this->getId()};");
+        /*var_dump($seo);
+        echo $this->db->error;
+        die();
+         * 
+         */
+        return $analitica->fetch_object();
+    }
+    public function getOneGeneral(){
+        $analitica = $this->db->query("SELECT * FROM analiticas WHERE web_id={$this->getWeb_id()};");
         return $analitica->fetch_object();
     }
  

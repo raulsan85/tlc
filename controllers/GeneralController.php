@@ -67,7 +67,13 @@ class generalController{
             $seo = new Seo();
             $seo->setWeb_id($id);
             $seo = $seo->getOneGeneral();
-        
+
+            $analitica = new Analitica();
+            $analitica->setWeb_id($id);
+            $analitica = $analitica->getOneGeneral();
+            
+            $dato_estructurado = new DatoEstructurado();
+            $dato_estructurado = $dato_estructurado->getOne($id);
         }
         
         

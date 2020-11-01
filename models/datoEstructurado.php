@@ -190,15 +190,22 @@ class DatoEstructurado{
 
     //Metodo para mostrar todas las columnas de la tabla datos estructurados
     public function getAll(){
-        $todos_datos = $this->db->query("SELECT * FROM datos_estructurados ORDER BY id ASC;");
+        $todos_datos = $this->db->query("SELECT d.dato, w.url AS 'web', dp.web_id AS 'web_id' FROM datos_estructurados d INNER JOIN datos_pivot dp ON dp.dato_id=d.id INNER JOIN webs w ON dp.web_id=w.id ORDER BY w.id ASC;");
+        echo $this->db->error;
+        return $todos_datos;
+    }
+
+    //Metodo para mostrar todas las columnas de cada dato
+    public function getAllDato($data){
+        $todos_datos = $this->db->query("SELECT w.web AS 'web', w.id AS 'web_id', w.url AS 'url' FROM webs w INNER JOIN datos_pivot dp ON w.id=dp.web_id INNER JOIN datos_estructurados d ON dp.dato_id=d.id WHERE d.dato='{$data}' ORDER BY w.id ASC;");
+        echo $this->db->error;
         return $todos_datos;
     }
     
     //Metodo para mostrar una columna de la tabla datos estructurados
-    public function getOne(){
-        $dato = $this->db->query("SELECT * FROM datos_estructurados WHERE id={$this->getId()};");
-        return $dato->fetch_object();
+    public function getOne($web_id){
+        $dato = $this->db->query("SELECT d.dato, w.url AS 'url', w.web AS 'web' FROM datos_estructurados d INNER JOIN datos_pivot dp ON d.id = dp.dato_id INNER JOIN webs w ON w.id = dp.web_id WHERE dp.web_id = {$web_id};");
+        echo $this->db->error;
+        return $dato;   
     }
-  
-
 }
