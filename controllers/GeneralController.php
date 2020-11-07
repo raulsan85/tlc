@@ -9,6 +9,7 @@ require_once 'models/tematica.php';
 require_once 'models/servicio.php';
 require_once 'models/contacto.php';
 require_once 'models/datoEstructurado.php';
+require_once 'models/plugin.php';
 
 class generalController{
     public function index(){
@@ -35,6 +36,8 @@ class generalController{
         $analitica = new Analitica();
 
         $dato_estructurado = new DatoEstructurado();
+
+        $plugin = new Plugin();
 
         require_once 'views/general/destacados.php';
     }
@@ -74,6 +77,10 @@ class generalController{
             
             $dato_estructurado = new DatoEstructurado();
             $dato_estructurado = $dato_estructurado->getOne($id);
+        
+            $plugin = new Plugin();
+            $plugin = $plugin->getOne($id);
+
         }
         
         

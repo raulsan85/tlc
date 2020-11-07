@@ -35,6 +35,16 @@
     <li>Idiomas: <?=$caracteristica->idiomas == NULL ? "N/D" : $caracteristica->idiomas?></li>
     <li>Optimización: <?=$caracteristica->seo == NULL ? "N/D" : $caracteristica->seo?></li>
 </ul>
+<h3>Plugins</h3>
+<?php if($plugin->num_rows==0): ?>
+ND
+<?php else: ?>
+<ul>
+        <?php while($plug = $plugin->fetch_object()): ?>
+        <li><?=$plug->plugin?></li>
+        <?php endwhile; ?>
+</ul>
+<?php endif; ?>
 <h3>SEO</h3>
 <h4>Estadísticas Rank Tracker</h4>
 <p>2019</p>
@@ -86,8 +96,12 @@
     <li>Puntuación PageSpeed Móvil:  <?=$analitica->pagespeed_mob_20 == NULL ? "N/D" : $analitica->pagespeed_mob_20?></li>
 </ul>
 <h4>Datos Estructurados</h4>
+<?php if($dato_estructurado->num_rows==0): ?>
+ND
+<?php else: ?>
 <ul>
         <?php while($dato = $dato_estructurado->fetch_object()): ?>
         <li><?=$dato->dato?></li>
         <?php endwhile; ?>
 </ul>
+<?php endif; ?>
