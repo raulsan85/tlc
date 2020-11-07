@@ -86,5 +86,9 @@ class generalController{
         
         require_once 'views/general/vista_pagina.php';
     }
+
+    public function crear(){
+        require_once 'views/general/formulario_add.php';
+    }
 }
 
