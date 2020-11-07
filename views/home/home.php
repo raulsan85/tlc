@@ -8,4 +8,5 @@
 <a href="<?=base_url?>tematica/index">Temáticas</a></br>
 <a href="<?=base_url?>web/index">Webs</a></br>
 <a href="<?=base_url?>analitica/index">Analíticas</a></br>
-<a href="<?=base_url?>dato/index">Datos Estructurados</a>
+<a href="<?=base_url?>dato/index">Datos Estructurados</a></br>
+<a href="<?=base_url?>plugin/index">Plugins</a>
