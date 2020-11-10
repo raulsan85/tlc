@@ -88,6 +88,15 @@ class generalController{
     }
 
     public function crear(){
+        $tematicas = new Tematica();
+        $tematicas = $tematicas->getAll();
+        
+        $clientes = new Cliente();
+        $clientes = $clientes->getAll();
+        
+        $contactos = new Contacto();
+        $contactos = $contactos->getAll();
+        
         require_once 'views/general/formulario_add.php';
     }
 }

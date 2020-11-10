@@ -1,4 +1,6 @@
 <h1>Tabla de Clientes</h1>
+
+<a href="<?=base_url?>cliente/crear">Añadir nuevo Cliente</a>
 <table>
     <tr>
         <th>Empresa</th>

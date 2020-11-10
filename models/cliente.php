@@ -12,6 +12,7 @@ class Cliente{
     private $fecha_alta;
     private $baja;
     private $division;
+    private $teamleader;
     
     //Conexion a la bd:
     private $db;
@@ -64,6 +65,10 @@ class Cliente{
         return $this->division;
     }
 
+    function getTeamleader() {
+        return $this->teamleader;
+    }
+    
     function getDb() {
         return $this->db;
     }
@@ -77,7 +82,7 @@ class Cliente{
     }
 
     function setDireccion($direccion) {
-        $this->nombre = $this->db->real_escape_string($nombre);
+        $this->direccion = $this->db->real_escape_string($direccion);
     }
 
     function setCodigo_postal($codigo_postal) {
@@ -85,7 +90,7 @@ class Cliente{
     }
 
     function setCiudad($ciudad) {
-        $this->nombre = $this->db->real_escape_string($nombre);
+        $this->ciudad = $this->db->real_escape_string($ciudad);
     }
 
     function setProvincia($provincia) {
@@ -112,13 +117,17 @@ class Cliente{
         $this->division = $this->db->real_escape_string($division);
     }
 
+    function setTeamleader($teamleader) {
+        $this->teamleader = $this->db->real_escape_string($teamleader);
+    }
+
     function setDb($db) {
         $this->db = $db;
     }
 
-        //Metodo para guardar nuevas webs
+    //Metodo para guardar nuevas clientes
     public function save(){
-        $sql = "INSERT INTO webs VALUES(NULL, '{$this->getNombre()}', '{$this->getDireccion()}', '{$this->getCodigo_postal()}', '{$this->getCiudad()}', '{$this->getProvincia()}', '{$this->getPais()}', '{$this->getGestor_cuentas()}', '{$this->getFecha_alta()}', '{$this->getBaja()}', '{$this->getBaja()}', '{$this->getDivision()}');";
+        $sql = "INSERT INTO clientes VALUES(NULL, '{$this->getNombre()}', '{$this->getDireccion()}', '{$this->getCodigo_postal()}', '{$this->getCiudad()}', '{$this->getProvincia()}', '{$this->getPais()}', '{$this->getGestor_cuentas()}', '{$this->getFecha_alta()}', '{$this->getBaja()}', '{$this->getDivision()}', '{$this->getTeamleader()}');";
         $save = $this->db->query($sql);
         
         $result = false;
@@ -192,7 +201,14 @@ class Cliente{
     public function getOneGeneral(){
         $cliente = $this->db->query("SELECT * FROM clientes WHERE id={$this->getId()};");
         return $cliente->fetch_object();
-    }    
+    }  
+
+    //Metodo para sacar el ultimo cliente añadido
+    public function getLast(){
+        $cliente = $this->db->query("SELECT * FROM clientes ORDER BY id DESC LIMIT 1;");
+        return $cliente->fetch_object();
+    }
+
     /*
     //Metodo para mostrar solo la columna Web
     public function getWebs(){

@@ -7,23 +7,46 @@
     <input type="text" name="nombre_web" required /><br/>
 
     <label for="url">Url</label>
-    <input type="text" name="url" required /><br/>
+    <input type="url" name="url" required /><br/>
 
     <label for="ano">Fecha de Creación</label>
     <input type="date" name="ano" /><br/>
 
     <label for="servidor">Servidor</label>
-    <input type="text" name="servidor" /><br/>
+    <select name="servidor" >
+        <option>Pro</option>
+        <option>Dev</option>
+        <option>Dedicado</option>
+    </select>
+    <br/>
 
-    <label for="tematica">Temáticas</label>
-    <input type="text" name="tematica" /><br/>
 
+    <label for="tematica">Temáticas</label><br/>
+        <input name="tematica" list="tematicas">
+        <datalist id="tematicas">
+            
+        <?php while($tematica = $tematicas->fetch_object()): ?>
+            <option value="<?=$tematica->tematica?>"><?=$tematica->tematica?>            
+        <?php endwhile; ?>
 
+        </datalist>
+
+    <br/>
+    
     <h2>Cliente</h2>
         
     <label for="cliente">Nombre de la empresa</label>
-    <input type="text" name="cliente" required /><br/>
+        <input name="cliente" list="clientes" required>
+        <datalist id="clientes">
+            
+        <?php while($cliente = $clientes->fetch_object()): ?>
+            <option value="<?=$cliente->nombre?>"><?=$cliente->nombre?>            
+        <?php endwhile; ?>
 
+        </datalist>
+
+    <br/>
+    
     <label for="direccion">Dirección</label>
     <input type="text" name="direccion" /><br/>
 
@@ -46,20 +69,35 @@
     <input type="date" name="fecha_alta" /><br/>
 
     <label for="division">División</label>
-    <input type="text" name="division" /><br/>
+    <select name="division" >
+        <option>TLC</option>
+        <option>Seidonet</option>
+    </select><br/>
 
     <label for="teamleader">Enlace a Teamleader</label>
     <input type="text" name="teamleader" /><br/>
 
     <label for="servicios">Servicios Contratados</label>
-    <input type="text" name="servicios" /><br/>
-    
+    <select name="servicios" >
+        <option>Mantenimiento</option>
+        <option>Alojamiento</option>
+        <option>Dominio</option>
+        <option>Correo</option>
+    </select><br/>    
 
     <h2>Contacto</h2>
     
     <label for="nombre_contacto">Nombre</label>
-    <input type="text" name="nombre_contacto" /><br/>
+        <input name="nombre_contacto" list="nombres_contactos" required>
+        <datalist id="nombres_contactos">
+            
+        <?php while($contacto = $contactos->fetch_object()): ?>
+            <option value="<?=$contacto->nombre?>"><?=$contacto->nombre?>            
+        <?php endwhile; ?>
 
+        </datalist>
+
+    <br/>
     <label for="apellidos_contacto">Apellidos</label>
     <input type="text" name="apellidos_contacto" /><br/>
 
@@ -67,7 +105,7 @@
     <input type="text" name="cargo" /><br/>
 
     <label for="telefono">Teléfono</label>
-    <input type="text" name="telefono" /><br/>
+    <input type="tel" name="telefono" /><br/>
 
     <label for="email">Email</label>
     <input type="email" name="email" /><br/>

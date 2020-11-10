@@ -44,7 +44,7 @@ class Tematica{
         $this->db = $db;
     }
 
-    //Metodo para mostrar todas las columnas de la tabla webs
+    //Metodo para mostrar todas las columnas de la tabla tematicas
     public function getAll(){
         $todas_tematicas = $this->db->query("SELECT t.tematica AS 'tematica', w.url AS 'web', tp.web_id AS 'web_id' FROM tematicas t INNER JOIN tematicas_pivot tp ON tp.tematica_id=t.id INNER JOIN webs w ON tp.web_id=w.id ORDER BY w.id ASC;");
         echo $this->db->error;

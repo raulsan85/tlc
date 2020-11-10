@@ -71,9 +71,15 @@ class Web{
         $this->db = $db;
     }
 
+    //Metodo para sacar webs y clientes
+    public function getCliente($id){
+        $clientes = $this->db->query("SELECT nombre, id FROM clientes WHERE id='{$id}';");
+        return $clientes->fetch_object();
+    }
+    
     //Metodo para guardar nuevas webs
     public function save(){
-        $sql = "INSERT INTO webs VALUES(NULL, '{$this->getWeb()}', '{$this->getUrl()}', '{$this->getCliente_id()}', '{$this->getAno()}', '{$this->getServidor()}');";
+        $sql = "INSERT INTO webs VALUES(NULL, '{$this->getWeb()}', '{$this->getUrl()}', NULL, '{$this->getAno()}', '{$this->getServidor()}');";
         $save = $this->db->query($sql);
         
         $result = false;
@@ -82,6 +88,9 @@ class Web{
             $result = true;
         }
         
+        //echo $this->db->error;
+        //echo $sql;
+        //die();
         return $result;
     }
     
@@ -94,6 +103,12 @@ class Web{
     //Metodo para mostrar una columna de la tabla webs
     public function getOne(){
         $web = $this->db->query("SELECT * FROM webs WHERE id={$this->getId()};");
+        return $web->fetch_object();
+    }
+    
+    //Metodo para sacar la ultima web añadida
+    public function getLast(){
+        $web = $this->db->query("SELECT * FROM webs ORDER BY id DESC LIMIT 1;");
         return $web->fetch_object();
     }
     

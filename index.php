@@ -1,4 +1,7 @@
 <?php 
+//Inicio de sesion
+session_start();
+
 //Carga de autoload
 require_once 'autoload.php';
 
