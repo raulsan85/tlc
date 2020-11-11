@@ -1,9 +1,11 @@
 <h1>Añadir una nueva Web</h1>
-<form action="<?=base_url?>web/guardar&id=<?=$web->id?>" method="POST">
+<form action="<?=base_url?>web/guardar" method="POST">
 
     <h2>Web</h2>
     
     <p>Cliente: <?=$web->nombre?></p>
+    
+    <input type="hidden" value="<?=$web->id?>" name="cliente_id"/>
     
     <label for="nombre_web">Nombre de la web</label>
     <input type="text" name="nombre_web" required /><br/>

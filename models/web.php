@@ -79,7 +79,7 @@ class Web{
     
     //Metodo para guardar nuevas webs
     public function save(){
-        $sql = "INSERT INTO webs VALUES(NULL, '{$this->getWeb()}', '{$this->getUrl()}', NULL, '{$this->getAno()}', '{$this->getServidor()}');";
+        $sql = "INSERT INTO webs VALUES(NULL, '{$this->getWeb()}', '{$this->getUrl()}', '{$this->getCliente_id()}', '{$this->getAno()}', '{$this->getServidor()}');";
         $save = $this->db->query($sql);
         
         $result = false;

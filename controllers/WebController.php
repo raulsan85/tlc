@@ -77,7 +77,7 @@ class webController{
             $url = isset($_POST['url']) ? $_POST['url']: false;
             $ano = isset($_POST['ano']) ? $_POST['ano']: false;
             $servidor = isset($_POST['servidor']) ? $_POST['servidor']: false;
-            $cliente_id = isset($_GET['id']) ? $_GET['id']: false;
+            $cliente_id = isset($_POST['cliente_id']) ? $_POST['cliente_id']: false;
             //var_dump($nombre);
             //var_dump($url);
             //var_dump($ano);
@@ -108,6 +108,7 @@ class webController{
 
             //Comprobamos que el formulario no errores y en ese caso guardamos:
             if(count($errores)==0){
+                var_dump($cliente_id);
                 $web = new Web();
                 $web->setWeb($nombre);
                 $web->setUrl($url);
@@ -140,4 +141,7 @@ class webController{
         $web = $web->getLast();
         require_once 'views/web/guardado.php';
     }
+    
+
+            
 }

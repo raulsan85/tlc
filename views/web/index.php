@@ -1,4 +1,5 @@
 <h1>Tabla de Webs</h1>
+<a href="<?=base_url?>cliente/preWeb">Añadir nueva Web</a><br/>
 <table>
     <tr>
         <th>Web</th>

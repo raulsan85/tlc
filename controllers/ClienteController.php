@@ -209,4 +209,10 @@ class clienteController{
         $cliente = $cliente->getLast();
         require_once 'views/cliente/guardado.php';
     }
+    
+    public function preWeb(){
+        $cliente = new Cliente();
+        $clientes = $cliente->getAll();
+        require_once 'views/cliente/preweb.php';
+    }
 }
