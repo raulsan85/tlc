@@ -17,4 +17,6 @@
 <?php endif; ?>
 
 <a href="<?=base_url?>">Editar Web</a>
-<a href="<?=base_url?>">Crear Cliente</a>
+<a href="<?=base_url?>general/pagina&id=<?=$web->id?>">Ver Ficha Completa</a>
+<a href="<?=base_url?>web/index">Ver Webs</a>
+<a href="<?=base_url?>">Inicio</a>

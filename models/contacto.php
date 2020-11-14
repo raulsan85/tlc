@@ -80,6 +80,46 @@ class Contacto{
         $this->db = $db;
     }
 
+    //Metodo para sacar contactos y clientes
+    public function getCliente($id){
+        $clientes = $this->db->query("SELECT nombre AS 'nombre_cliente', id AS 'cliente_id' FROM clientes WHERE id='{$id}';");
+        return $clientes->fetch_object();
+    }
+    
+    //Metodo para guardar nuevos contactos
+    public function save(){
+        $sql = "INSERT INTO contactos VALUES(NULL, '{$this->getNombre()}', '{$this->getApellidos()}', '{$this->getCliente_id()}', '{$this->getCargo()}', '{$this->getTelefono()}', '{$this->getEmail()}');";
+        $save = $this->db->query($sql);
+        
+        $result = false;
+        
+        if($save){
+            $result = true;
+        }
+        
+        //echo $this->db->error;
+        //echo $sql;
+        //die();
+        return $result;
+    }
+
+    //Metodo para guardar nuevos contactos
+    public function savePivot(){
+        $sql = "INSERT INTO contactos_pivot VALUES(NULL, '{$this->getId()}', '{$this->getCliente_id()}');";
+        $save = $this->db->query($sql);
+        
+        $result = false;
+        
+        if($save){
+            $result = true;
+        }
+        
+        echo $this->db->error;
+        echo $sql;
+        die();
+        return $result;
+    }
+    
     //Metodo para mostrar todas las columnas de la tabla contactos
     public function getAll(){
         $todos_contactos = $this->db->query("SELECT c.*, cl.nombre AS 'empresa' FROM contactos c INNER JOIN clientes cl ON cl.id=c.cliente_id ORDER BY id ASC;");
@@ -91,7 +131,12 @@ class Contacto{
         $contacto = $this->db->query("SELECT c.*, cl.nombre AS 'empresa' FROM contactos c INNER JOIN clientes cl ON cl.id = c.cliente_id WHERE c.id={$this->getId()};");
         return $contacto->fetch_object();
     }
-    
+
+    //Metodo para sacar el ultimo contacto añadido
+    public function getLast(){
+        $contacto = $this->db->query("SELECT * FROM contactos ORDER BY id DESC LIMIT 1;");
+        return $contacto->fetch_object();
+    }    
     //Metodo para sacar todas las urls asociados a un contacto
     public function getUrls($contacto_id){
         $urls = $this->db->query("SELECT w.url, cl.id AS 'cliente_id' FROM webs w INNER JOIN clientes cl ON w.cliente_id = cl.id INNER JOIN contactos_pivot cp ON cl.id = cp.cliente_id WHERE cp.contacto_id = {$contacto_id};");

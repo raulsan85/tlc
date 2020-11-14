@@ -25,3 +25,4 @@
 
 <a href="<?=base_url?>">Editar Cliente</a>
 <a href="<?=base_url?>web/crear&id=<?=$cliente->id?>">Crear Web</a>
+<a href="<?=base_url?>contacto/crear&id=<?=$cliente->id?>">Crear Contacto</a>

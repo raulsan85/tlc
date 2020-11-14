@@ -62,6 +62,16 @@ class webController{
             $web = new Web();
             $web->setCliente_id($id);
             $web = $web->getCliente($id);
+        }else{
+            //var_dump($_POST);
+            $string = $_POST['cliente'];
+            $array = explode(" ", $string);
+            //var_dump($array);
+            $id = $array[0];
+            //var_dump($id);
+            $web = new Web();
+            $web->setCliente_id($id);
+            $web = $web->getCliente($id);
         }
         require_once 'views/web/formulario_add.php';
 

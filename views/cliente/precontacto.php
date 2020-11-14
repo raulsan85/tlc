@@ -1,6 +1,6 @@
 <h1>SELECCIONA UN CLIENTE</h1>
-<h2>Antes de añadir una nueva web debes seleccionar o añadir un cliente</h2>
-<form action="<?=base_url?>web/crear" method="POST">
+<h2>Antes de añadir un nuevo contacto debes seleccionar o añadir un cliente</h2>
+<form action="<?=base_url?>contacto/crear" method="POST">
     <input name="cliente" list="clientes">
     <datalist id="clientes">
 

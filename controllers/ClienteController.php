@@ -215,4 +215,10 @@ class clienteController{
         $clientes = $cliente->getAll();
         require_once 'views/cliente/preweb.php';
     }
+
+    public function preContacto(){
+        $cliente = new Cliente();
+        $clientes = $cliente->getAll();
+        require_once 'views/cliente/precontacto.php';
+    }
 }

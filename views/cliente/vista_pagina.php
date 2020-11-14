@@ -20,6 +20,7 @@
     <li>Enlace a Teamleader: <?=$cliente->teamleader == NULL ? "N/D" : $cliente->teamleader?></li>
 </ul>
 <h3>Contactos</h3>
+    <?php var_dump($contacto); ?>
 <ul>
     <?php while($persona = $contacto->fetch_object()): ?>
         <li><a href="<?=base_url?>contacto/pagina&id=<?=$persona->id?>"><?=$persona->nombre?> <?=$persona->apellidos?></a></li>
