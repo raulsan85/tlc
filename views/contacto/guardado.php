@@ -8,6 +8,8 @@
     <p>Email: <?=$contacto->email?></p>
 <?php elseif(isset($_SESSION['contacto_error']['save'])): ?>
     <strong class="alert_red"><?=$_SESSION['contacto_error']['save']?></strong>
+<?php elseif(isset($_SESSION['contacto_error']['save_pivot'])): ?>
+    <strong class="alert_red"><?=$_SESSION['contacto_error']['save_pivot']?></strong>
 <?php elseif(isset($_SESSION['contacto_error'])): ?>
     <ul>
         <?php foreach ($_SESSION['contacto_error'] as $error): ?>

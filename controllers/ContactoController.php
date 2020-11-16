@@ -120,31 +120,15 @@ class contactoController{
                 $contacto->setCliente_id($cliente_id);
                 //Con esto ya tendriamos el objeto montado. Ahora llamamos al metodo save que hay en el modelo:
                 $save = $contacto->save();
-                if($save){
+                $save_pivot = $contacto->save_pivot($cliente_id);
+                if($save && $save_pivot){
                     //Si se guarda, creamos una sesion y dentro el indice siguiente:
                     $_SESSION['contacto_ok'] = "El contacto se ha guardado correctamente";
-                    $ultimo = new Contacto();
-                    $ultimo = $ultimo->getLast();
-                    $save_pivot = $ultimo->savePivot();
-                    if($save_pivot){
-                        //Si se guarda, creamos una sesion y dentro el indice siguiente:
-                        $_SESSION['contacto_ok'] = "El contacto se ha guardado correctamente";
-                    }else{
-                        //Si no se guarda, creamos el siguiente indice:
-                        $_SESSION['contacto_error']['save_pivot'] = "Se ha producido un error";
-                    }
                 }else{
                     //Si no se guarda, creamos el siguiente indice:
                     $_SESSION['contacto_error']['save'] = "Se ha producido un error";
                 }
-                $save_pivot = $contacto->savePivot();
-                if($save_pivot){
-                    //Si se guarda, creamos una sesion y dentro el indice siguiente:
-                    $_SESSION['contacto_ok'] = "El contacto se ha guardado correctamente";
-                }else{
-                    //Si no se guarda, creamos el siguiente indice:
-                    $_SESSION['contacto_error']['save_pivot'] = "Se ha producido un error";
-                }
+
                 
             }else{
                 //Si hay algun error de validacion, creamos el siguiente indice:

@@ -103,21 +103,23 @@ class Contacto{
         return $result;
     }
 
-    //Metodo para guardar nuevos contactos
-    public function savePivot(){
-        $sql = "INSERT INTO contactos_pivot VALUES(NULL, '{$this->getId()}', '{$this->getCliente_id()}');";
-        $save = $this->db->query($sql);
+    //Metodo para guardar nuevos contactos y relacionarlos con los clientes:
+    public function save_pivot($cliente_id){
+        //Sacamos el id del ultimo pedido que hemos insertado
+        $sql = "SELECT LAST_INSERT_ID() as 'contacto';";
+        $query = $this->db->query($sql);
+        $contacto_id = $query->fetch_object()->contacto;
+
+        $insert = "INSERT INTO contactos_pivot VALUES(NULL, {$contacto_id}, {$cliente_id});";
+        $save = $this->db->query($insert);
+
         
-        $result = false;
-        
+        $result=false;
         if($save){
-            $result = true;
+            $result=true;
         }
+        return $result;    
         
-        echo $this->db->error;
-        echo $sql;
-        die();
-        return $result;
     }
     
     //Metodo para mostrar todas las columnas de la tabla contactos

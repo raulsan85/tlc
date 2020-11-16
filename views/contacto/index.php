@@ -1,4 +1,5 @@
 <h1>Tabla de Contactos</h1>
+<a href="<?=base_url?>cliente/preContacto">Añadir nuevo Contacto</a><br/>
 <table>
     <tr>
         <th>Nombre</th>
