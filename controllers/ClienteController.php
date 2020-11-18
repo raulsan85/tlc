@@ -221,4 +221,22 @@ class clienteController{
         $clientes = $cliente->getAll();
         require_once 'views/cliente/precontacto.php';
     }
+
+    //Metodo para editar los clientes
+    public function editar(){
+        //Comprobamos que existe el id:
+        if(isset($_GET['id'])){
+            //Guardamos el id de get en una variable:
+            $id = $_GET['id'];
+            $edit = true;
+            //Creamos un nuevo objeto producto y le seteamos el id:
+            $cliente = new Cliente();
+            $cliente->setId($id);
+            //Para sacar solo uno:
+            $edit_cliente = $cliente->getOne();
+            //Incluimos la vista de crear, para reutilizarla y cuando en esa vista 
+            //se detecte que edit esta true, cambiara el titulo          
+            require_once 'views/cliente/formulario_add.php';
+        }
+    }    
 }

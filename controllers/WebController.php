@@ -117,8 +117,14 @@ class webController{
             }
 
             //Comprobamos que el formulario no errores y en ese caso guardamos:
-            if(count($errores)==0){
-                var_dump($cliente_id);
+            //Hacemos una comprobacion para que este metodo nos valga tanto
+            //para guardar como para actualizar:
+            if(isset($_GET['id'])){
+                $id = $_GET['id'];
+                $web = new Web();
+                $web->setId($id);
+                $save = $web->edit();
+            }elseif(count($errores)==0){
                 $web = new Web();
                 $web->setWeb($nombre);
                 $web->setUrl($url);
@@ -126,7 +132,10 @@ class webController{
                 $web->setServidor($servidor);
                 $web->setCliente_id($cliente_id);
                 //Con esto ya tendriamos el objeto montado. Ahora llamamos al metodo save que hay en el modelo:
+                
+                //Ahora guardamos el objeto en la base de datos:
                 $save = $web->save();
+                
                 if($save){
                     //Si se guarda, creamos una sesion y dentro el indice siguiente:
                     $_SESSION['web_ok'] = "La web se ha guardado correctamente";
@@ -151,7 +160,24 @@ class webController{
         $web = $web->getLast();
         require_once 'views/web/guardado.php';
     }
-    
+
+    //Metodo para editar las webs
+    public function editar(){
+        //Comprobamos que existe el id:
+        if(isset($_GET['id'])){
+            //Guardamos el id de get en una variable:
+            $id = $_GET['id'];
+            $edit = true;
+            //Creamos un nuevo objeto producto y le seteamos el id:
+            $web = new Web();
+            $web->setId($id);
+            //Para sacar solo uno:
+            $edit_web = $web->getOne();
+            //Incluimos la vista de crear, para reutilizarla y cuando en esa vista 
+            //se detecte que edit esta true, cambiara el titulo          
+            require_once 'views/web/formulario_add.php';
+        }
+    }    
 
             
 }

@@ -2,7 +2,8 @@
 
 <h2><a href="<?=$web->url?>"><?=$web->url?></a></h2>
 
-<h3>Datos de la empresa</h3>
+<h3>Datos de la empresa</h3>   
+<a href="<?=base_url?>cliente/editar&id=<?=$cliente->id?>">Editar</a>
 <ul>
     <li>Empresa:    
         <?php if($cliente->nombre == NULL): ?>
@@ -10,11 +11,13 @@
         <?php else: ?>
             <a href="<?=base_url?>cliente/pagina&id=<?=$cliente->id?>"><?=$cliente->nombre?></a>
         <?php endif; ?>
+            
     <li>División: <?=$cliente == NULL || $cliente->division == NULL ? "N/D" : $cliente->division?></li>
     <li>Estado: <?=$cliente == NULL || $cliente->baja == NULL ? "N/D" : $cliente->baja?></li>
     <li>Servicios contratados: <?=$servicio == NULL || $servicio->servicios_contratados == NULL ? "N/D" : $servicio->servicios_contratados?></li>
 </ul>
 <h3>Datos de la web</h3>
+<a href="<?=base_url?>web/editar&id=<?=$web->id?>">Editar</a>
 <ul>
     <li>Año de creación: <?=$web == NULL || $web->ano == NULL ? "N/D" : $web->ano?></li>
     <li>Servidor: <?=$web == NULL || $web->servidor == NULL ? "N/D" : $web->servidor?></li>

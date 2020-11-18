@@ -93,6 +93,19 @@ class Web{
         //die();
         return $result;
     }
+
+    //Metodo para actualizar las webs, para guardar despues de editar:
+    public function edit(){
+        $sql = "UPDATE webs SET web = '{$this->getWeb()}', url = '{$this->getUrl()}', ano = {$this->getAno()}, servidor = {$this->getServidor()} WHERE id={$this->id};";
+
+        $save = $this->db->query($sql);
+
+        $result=false;
+        if($save){
+            $result=true;
+        }
+        return $result;
+    }
     
     //Metodo para mostrar todas las columnas de la tabla webs
     public function getAll(){
