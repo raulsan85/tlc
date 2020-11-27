@@ -6,6 +6,7 @@
 <?php endwhile; ?>
 
 <h3>Datos del cliente</h3>
+<a href="<?=base_url?>cliente/editar&id=<?=$cliente->id?>">Editar</a>
 <ul>
     <li>Nombre: <?=$cliente->nombre == NULL ? "N/D" : $cliente->nombre?></li>
     <li>Dirección: <?=$cliente->direccion == NULL ? "N/D" : $cliente->direccion?></li>

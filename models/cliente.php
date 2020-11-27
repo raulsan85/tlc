@@ -138,7 +138,20 @@ class Cliente{
         
         return $result;
     }
-    
+
+    //Metodo para actualizar los clientes, para guardar despues de editar:
+    public function edit(){
+        $sql = "UPDATE productos SET nombre = '{$this->getNombre()}', direccion = '{$this->getDireccion()}', codigo_postal = {$this->getCodigo_postal()}, ciudad = {$this->getCiudad()}, provincia ={$this->getProvincia()}, ciudad = {$this->getCiudad()}, pais = {$this->getPais()}, gestor_cuentas = {$this->getGestor_cuentas()}, fecha_alta = {$this->getFecha_alta()}, baja = {$this->getBaja()}, division = {$this->getDivision()}, teamleader = {$this->getTeamleader()} WHERE id={$this->id};";
+
+        $save = $this->db->query($sql);
+
+        $result=false;
+        if($save){
+            $result=true;
+        }
+        return $result;
+    }
+        
     //Metodo para mostrar todas las columnas de la tabla webs
     public function getAll(){
         $todos_clientes = $this->db->query("SELECT * FROM clientes ORDER BY id ASC;");

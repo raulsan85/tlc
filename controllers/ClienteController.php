@@ -113,10 +113,16 @@ class clienteController{
             $division = isset($_POST['division']) ? $_POST['division']: false;
             $teamleader = isset($_POST['teamleader']) ? $_POST['teamleader']: false;
             //var_dump($nombre);
-            //var_dump($url);
-            //var_dump($ano);
-            //var_dump($servidor);
-            
+            //var_dump($direccion);
+            //var_dump($codigo_postal);
+            //var_dump($ciudad);
+            //var_dump($provincia);
+            //var_dump($pais);
+            //var_dump($gestor_cuentas);
+            //var_dump($fecha_alta);
+            //var_dump($baja);
+            //var_dump($division);
+            var_dump($_GET['id']);
             //Validacion de cada campo:
             if (!empty($nombre)) {
                 $nombre_validado = true;
@@ -184,7 +190,14 @@ class clienteController{
                 $cliente->setDivision($division);
                 $cliente->setTeamleader($teamleader);
                 //Con esto ya tendriamos el objeto montado. Ahora llamamos al metodo save que hay en el modelo:
-                $save = $cliente->save();
+                if(isset($_GET['id'])){
+                    $id = $_GET['id'];
+                    $cliente->setId($id);
+                    $save = $cliente->edit();
+                }else{
+                    //Ahora guardamos el objeto en la base de datos:
+                    $save = $cliente->save();
+                }
                 if($save){
                     //Si se guarda, creamos una sesion y dentro el indice siguiente:
                     $_SESSION['cliente_ok'] = "El cliente se ha guardado correctamente";
@@ -200,8 +213,14 @@ class clienteController{
             //SI no llega nada por post
             $_SESSION['cliente_error'] = $errores;
         }
-        header('Location:'.base_url.'cliente/nuevoCliente');
-
+        var_dump($errores);
+        var_dump($_SESSION);
+/*        if(isset($_GET['id'])){
+            header('Location:'.base_url.'cliente/clienteEditado');
+        }else{
+            header('Location:'.base_url.'cliente/nuevoCliente');
+        }        
+*/
     }
 
     public function nuevoCliente(){
