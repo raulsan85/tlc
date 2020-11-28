@@ -141,10 +141,12 @@ class Cliente{
 
     //Metodo para actualizar los clientes, para guardar despues de editar:
     public function edit(){
-        $sql = "UPDATE productos SET nombre = '{$this->getNombre()}', direccion = '{$this->getDireccion()}', codigo_postal = {$this->getCodigo_postal()}, ciudad = {$this->getCiudad()}, provincia ={$this->getProvincia()}, ciudad = {$this->getCiudad()}, pais = {$this->getPais()}, gestor_cuentas = {$this->getGestor_cuentas()}, fecha_alta = {$this->getFecha_alta()}, baja = {$this->getBaja()}, division = {$this->getDivision()}, teamleader = {$this->getTeamleader()} WHERE id={$this->id};";
+        $sql = "UPDATE clientes SET nombre = '{$this->getNombre()}', direccion = '{$this->getDireccion()}', codigo_postal = {$this->getCodigo_postal()}, ciudad = '{$this->getCiudad()}', provincia = '{$this->getProvincia()}', pais = '{$this->getPais()}', gestor_cuentas = '{$this->getGestor_cuentas()}', fecha_alta = '{$this->getFecha_alta()}', baja = '{$this->getBaja()}', division = '{$this->getDivision()}', teamleader = '{$this->getTeamleader()}' WHERE id ={$this->id};";
 
         $save = $this->db->query($sql);
 
+        echo $this->db->error;
+        die(); 
         $result=false;
         if($save){
             $result=true;

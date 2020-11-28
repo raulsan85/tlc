@@ -122,7 +122,7 @@ class clienteController{
             //var_dump($fecha_alta);
             //var_dump($baja);
             //var_dump($division);
-            var_dump($_GET['id']);
+            //var_dump($_GET['id']);
             //Validacion de cada campo:
             if (!empty($nombre)) {
                 $nombre_validado = true;
@@ -201,9 +201,11 @@ class clienteController{
                 if($save){
                     //Si se guarda, creamos una sesion y dentro el indice siguiente:
                     $_SESSION['cliente_ok'] = "El cliente se ha guardado correctamente";
+                    var_dump($_SESSION['cliente_ok']);;
                 }else{
                     //Si no se guarda, creamos el siguiente indice:
                     $_SESSION['cliente_error']['save'] = "Se ha producido un error";
+                    var_dump($_SESSION['cliente_error']['save']);
                 }
             }else{
                 //Si hay algun error de validacion, creamos el siguiente indice:
@@ -213,20 +215,25 @@ class clienteController{
             //SI no llega nada por post
             $_SESSION['cliente_error'] = $errores;
         }
-        var_dump($errores);
-        var_dump($_SESSION);
-/*        if(isset($_GET['id'])){
-            header('Location:'.base_url.'cliente/clienteEditado');
-        }else{
-            header('Location:'.base_url.'cliente/nuevoCliente');
-        }        
-*/
+        //var_dump($errores);
+        //var_dump($_SESSION);
+        header('Location:'.base_url.'cliente/nuevoCliente');
+        
+
     }
 
     public function nuevoCliente(){
         $cliente = new Cliente();
         $cliente = $cliente->getLast();
         require_once 'views/cliente/guardado.php';
+    }
+
+    public function clienteEditado(){
+        $cliente = new Cliente();
+        $id = $_GET['id'];
+        $cliente->setId($id);
+        $cliente = $cliente->getOne();
+        require_once 'views/cliente/editado.php';
     }
     
     public function preWeb(){
