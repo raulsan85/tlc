@@ -96,10 +96,12 @@ class Web{
 
     //Metodo para actualizar las webs, para guardar despues de editar:
     public function edit(){
-        $sql = "UPDATE webs SET web = '{$this->getWeb()}', url = '{$this->getUrl()}', ano = {$this->getAno()}, servidor = {$this->getServidor()} WHERE id={$this->id};";
+        $sql = "UPDATE webs SET web = '{$this->getWeb()}', url = '{$this->getUrl()}', cliente_id = '{$this->getCliente_id()}', ano = '{$this->getAno()}', servidor = '{$this->getServidor()}' WHERE id={$this->id};";
 
         $save = $this->db->query($sql);
 
+        //echo $this->db->error;
+        //die(); 
         $result=false;
         if($save){
             $result=true;

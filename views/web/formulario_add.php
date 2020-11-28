@@ -8,7 +8,7 @@
     <?php $url_action = base_url."web/guardar";?>
 <?php endif;?>  
     
-<form action="<?=$url_action?>" method="POST">
+<form action="<?=$url_action?>" method="POST" enctype="multipart/form-data">
 
     <h2>Web</h2>
     

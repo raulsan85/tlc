@@ -121,6 +121,21 @@ class Contacto{
         return $result;    
         
     }
+
+    //Metodo para actualizar los contactos, para guardar despues de editar:
+    public function edit(){
+        $sql = "UPDATE contactos SET nombre = '{$this->getNombre()}', apellidos = '{$this->getApellidos()}', cliente_id = '{$this->getCliente_id()}', cargo = '{$this->getCargo()}', telefono = '{$this->getTelefono()}', email = '{$this->getEmail()}' WHERE id={$this->id};";
+
+        $save = $this->db->query($sql);
+
+        //echo $this->db->error;
+        //die(); 
+        $result=false;
+        if($save){
+            $result=true;
+        }
+        return $result;
+    }
     
     //Metodo para mostrar todas las columnas de la tabla contactos
     public function getAll(){

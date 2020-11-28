@@ -119,8 +119,15 @@ class contactoController{
                 $contacto->setEmail($email);
                 $contacto->setCliente_id($cliente_id);
                 //Con esto ya tendriamos el objeto montado. Ahora llamamos al metodo save que hay en el modelo:
-                $save = $contacto->save();
-                $save_pivot = $contacto->save_pivot($cliente_id);
+                if(isset($_GET['id'])){
+                    $id = $_GET['id'];
+                    $contacto->setId($id);
+                    $save = $contacto->edit();
+                }else{
+                    //Ahora guardamos el objeto en la base de datos:
+                    $save = $contacto->save();
+                    $save_pivot = $contacto->save_pivot($cliente_id);
+                }                  
                 if($save && $save_pivot){
                     //Si se guarda, creamos una sesion y dentro el indice siguiente:
                     $_SESSION['contacto_ok'] = "El contacto se ha guardado correctamente";
@@ -138,13 +145,45 @@ class contactoController{
             //SI no llega nada por post
             $_SESSION['contacto_error'] = $errores;
         }
-        header('Location:'.base_url.'contacto/nuevoContacto');
+        if(isset($_GET['id'])){
+            $id =  $_GET['id'];
+            header('Location:'.base_url.'contacto/contactoEditado&id='.$id);           
+        }else{
+            header('Location:'.base_url.'contacto/nuevoContacto');
+        }          
 
     }
 
+    //Metodo para editar los contactos
+    public function editar(){
+        //Comprobamos que existe el id:
+        if(isset($_GET['id'])){
+            //Guardamos el id de get en una variable:
+            $id = $_GET['id'];
+            $edit = true;
+            //Creamos un nuevo objeto producto y le seteamos el id:
+            $contacto = new Contacto();
+            $contacto->setId($id);
+            //Para sacar solo uno:
+            $edit_contacto = $contacto->getOne();
+            //Incluimos la vista de crear, para reutilizarla y cuando en esa vista 
+            //se detecte que edit esta true, cambiara el titulo          
+            require_once 'views/contacto/formulario_add.php';
+        }
+    }
+    
     public function nuevoContacto(){
         $contacto = new Contacto();
         $contacto = $contacto->getLast();
         require_once 'views/contacto/guardado.php';
+    }
+    
+    //Metodo para cuando se edita un Contacto
+    public function contactoEditado(){
+        $contacto = new Contacto();
+        $id = $_GET['id'];
+        $contacto->setId($id);
+        $contacto = $contacto->getOne();
+        require_once 'views/contacto/editado.php';
     }
 }

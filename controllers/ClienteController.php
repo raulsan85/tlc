@@ -217,35 +217,13 @@ class clienteController{
         }
         //var_dump($errores);
         //var_dump($_SESSION);
-        header('Location:'.base_url.'cliente/nuevoCliente');
-        
+        if(isset($_GET['id'])){
+            $id =  $_GET['id'];
+            header('Location:'.base_url.'cliente/clienteEditado&id='.$id);           
+        }else{
+            header('Location:'.base_url.'cliente/nuevoCliente');
+        }
 
-    }
-
-    public function nuevoCliente(){
-        $cliente = new Cliente();
-        $cliente = $cliente->getLast();
-        require_once 'views/cliente/guardado.php';
-    }
-
-    public function clienteEditado(){
-        $cliente = new Cliente();
-        $id = $_GET['id'];
-        $cliente->setId($id);
-        $cliente = $cliente->getOne();
-        require_once 'views/cliente/editado.php';
-    }
-    
-    public function preWeb(){
-        $cliente = new Cliente();
-        $clientes = $cliente->getAll();
-        require_once 'views/cliente/preweb.php';
-    }
-
-    public function preContacto(){
-        $cliente = new Cliente();
-        $clientes = $cliente->getAll();
-        require_once 'views/cliente/precontacto.php';
     }
 
     //Metodo para editar los clientes
@@ -264,5 +242,37 @@ class clienteController{
             //se detecte que edit esta true, cambiara el titulo          
             require_once 'views/cliente/formulario_add.php';
         }
-    }    
+    }
+    
+    //Metodo para cuando se guarda un nuevo cliente
+    public function nuevoCliente(){
+        $cliente = new Cliente();
+        $cliente = $cliente->getLast();
+        require_once 'views/cliente/guardado.php';
+    }
+
+    //Metodo para cuando se edita un cliente
+    public function clienteEditado(){
+        $cliente = new Cliente();
+        $id = $_GET['id'];
+        $cliente->setId($id);
+        $cliente = $cliente->getOne();
+        require_once 'views/cliente/editado.php';
+    }
+    
+    //Metodo para dar la opcion de elegir un cliente ya existente o crear uno nuevo antes de añadir una web    
+    public function preWeb(){
+        $cliente = new Cliente();
+        $clientes = $cliente->getAll();
+        require_once 'views/cliente/preweb.php';
+    }
+
+    //Metodo para dar la opcion de elegir un cliente ya existente o crear uno nuevo antes de añadir un contacto    
+    public function preContacto(){
+        $cliente = new Cliente();
+        $clientes = $cliente->getAll();
+        require_once 'views/cliente/precontacto.php';
+    }
+
+   
 }

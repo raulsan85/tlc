@@ -117,14 +117,7 @@ class webController{
             }
 
             //Comprobamos que el formulario no errores y en ese caso guardamos:
-            //Hacemos una comprobacion para que este metodo nos valga tanto
-            //para guardar como para actualizar:
-            if(isset($_GET['id'])){
-                $id = $_GET['id'];
-                $web = new Web();
-                $web->setId($id);
-                $save = $web->edit();
-            }elseif(count($errores)==0){
+            if(count($errores)==0){
                 $web = new Web();
                 $web->setWeb($nombre);
                 $web->setUrl($url);
@@ -132,9 +125,15 @@ class webController{
                 $web->setServidor($servidor);
                 $web->setCliente_id($cliente_id);
                 //Con esto ya tendriamos el objeto montado. Ahora llamamos al metodo save que hay en el modelo:
-                
-                //Ahora guardamos el objeto en la base de datos:
-                $save = $web->save();
+
+                if(isset($_GET['id'])){
+                    $id = $_GET['id'];
+                    $web->setId($id);
+                    $save = $web->edit();
+                }else{
+                    //Ahora guardamos el objeto en la base de datos:
+                    $save = $web->save();
+                }                
                 
                 if($save){
                     //Si se guarda, creamos una sesion y dentro el indice siguiente:
@@ -151,14 +150,13 @@ class webController{
             //SI no llega nada por post
             $_SESSION['web_error'] = $errores;
         }
-        header('Location:'.base_url.'web/nuevaWeb');
+        if(isset($_GET['id'])){
+            $id =  $_GET['id'];
+            header('Location:'.base_url.'web/webEditada&id='.$id);           
+        }else{
+            header('Location:'.base_url.'web/nuevaWeb');
+        }        
 
-    }
-
-    public function nuevaWeb(){
-        $web = new Web();
-        $web = $web->getLast();
-        require_once 'views/web/guardado.php';
     }
 
     //Metodo para editar las webs
@@ -177,7 +175,24 @@ class webController{
             //se detecte que edit esta true, cambiara el titulo          
             require_once 'views/web/formulario_add.php';
         }
-    }    
+    }
+    
+    public function nuevaWeb(){
+        $web = new Web();
+        $web = $web->getLast();
+        require_once 'views/web/guardado.php';
+    }
+
+    //Metodo para cuando se edita una web
+    public function webEditada(){
+        $web = new Web();
+        $id = $_GET['id'];
+        $web->setId($id);
+        $web = $web->getOne();
+        require_once 'views/web/editada.php';
+    }
+
+    
 
             
 }

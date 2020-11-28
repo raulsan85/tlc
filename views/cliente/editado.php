@@ -1,5 +1,5 @@
 <?php if(isset($_SESSION['cliente_ok'])): ?>
-    <h1>CLIENTE AÑADIDO</h1>
+    <h1>CLIENTE EDITADO</h1>
     <h2>Has editado el siguiente cliente:</h2>
     <p>Nombre del cliente: <?=$cliente->nombre == NULL ? "N/D" : $cliente->nombre?></p>
     <p>Dirección: <?=$cliente->direccion == NULL ? "N/D" : $cliente->direccion?></p>

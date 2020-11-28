@@ -21,8 +21,9 @@
     <li>Enlace a Teamleader: <?=$cliente->teamleader == NULL ? "N/D" : $cliente->teamleader?></li>
 </ul>
 <h3>Contactos</h3>
+<a href="<?=base_url?>contacto/crear&id=<?=$cliente->id?>">Añadir Contacto</a>
 <ul>
     <?php while($persona = $contacto->fetch_object()): ?>
-        <li><a href="<?=base_url?>contacto/pagina&id=<?=$persona->id?>"><?=$persona->nombre?> <?=$persona->apellidos?></a></li>
+    <li><a href="<?=base_url?>contacto/pagina&id=<?=$persona->id?>"><?=$persona->nombre?> <?=$persona->apellidos?></a></li>
     <?php endwhile; ?>
 </ul>

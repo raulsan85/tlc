@@ -1,6 +1,6 @@
 <?php if(isset($_SESSION['contacto_ok'])): ?>
-    <h1>NUEVO CONTACTO AÑADIDO</h1>
-    <h2>Has añadido el siguiente contacto:</h2>
+    <h1>CONTACTO EDITADO</h1>
+    <h2>Has editado el siguiente contacto:</h2>
     <p>Nombre: <?=$contacto->nombre?></p>
     <p>Apellidos: <?=$contacto->apellidos?></p>
     <p>Cargo: <?=$contacto->cargo?></p>

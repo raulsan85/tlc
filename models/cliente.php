@@ -145,8 +145,8 @@ class Cliente{
 
         $save = $this->db->query($sql);
 
-        echo $this->db->error;
-        die(); 
+        //echo $this->db->error;
+        //die(); 
         $result=false;
         if($save){
             $result=true;
