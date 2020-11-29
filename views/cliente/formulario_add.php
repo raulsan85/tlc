@@ -53,6 +53,16 @@
 
     <label for="teamleader">Enlace a Teamleader</label>
     <input type="url" name="teamleader" value="<?=isset($edit_cliente) && is_object($edit_cliente) ? $edit_cliente->teamleader : ''; ?>" /><br/>
+
+    <label for="servicios_contratados">Servicios Contratados</label>
+    <select name="servicios_contratados" >
+        <option <?=isset($edit_servicio) && is_object($edit_servicio) && $edit_servicio->servicios_contratados == "NULL" ? 'selected' : ''?>>No Disponible</option>
+        <option <?=isset($edit_servicio) && is_object($edit_servicio) && $edit_servicio->servicios_contratados == "Mantenimiento" ? 'selected' : ''?>>Mantenimiento</option>
+        <option <?=isset($edit_servicio) && is_object($edit_servicio) && $edit_servicio->servicios_contratados == "Alojamiento" ? 'selected' : ''?>>Alojamiento</option>
+        <option <?=isset($edit_servicio) && is_object($edit_servicio) && $edit_servicio->servicios_contratados == "Dominio" ? 'selected' : ''?>>Dominio</option>
+        <option <?=isset($edit_servicio) && is_object($edit_servicio) && $edit_servicio->servicios_contratados == "Correo" ? 'selected' : ''?>>Correo</option>
+    </select>
+    <br/>
     
     <input type="submit" value="Guardar" />
 

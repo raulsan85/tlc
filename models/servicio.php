@@ -66,4 +66,39 @@ class Servicio{
         $servicio = $this->db->query("SELECT * FROM servicios WHERE cliente_id={$this->getCliente_id()};");
         return $servicio->fetch_object();
     }
+    
+    //Metodo para guardar nuevos servicios
+    public function save(){
+        $sql = "INSERT INTO servicios VALUES(NULL, '{$this->getCliente_id()}', '{$this->getServicios_contratados()}');";
+        $save = $this->db->query($sql);
+        
+        $result = false;
+        
+        if($save){
+            $result = true;
+        }
+        
+        return $result;
+    }
+
+    //Metodo para actualizar los servicios, para guardar despues de editar:
+    public function edit(){
+        $sql = "UPDATE servicios SET servicios_contratados = '{$this->getServicios_contratados()}' WHERE cliente_id ={$this->cliente_id};";
+
+        $save = $this->db->query($sql);
+
+        //echo $this->db->error;
+        //die(); 
+        $result=false;
+        if($save){
+            $result=true;
+        }
+        return $result;
+    }
+
+    //Metodo para sacar el ultimo servicio añadido
+    public function getLast(){
+        $servicio = $this->db->query("SELECT * FROM servicios ORDER BY id DESC LIMIT 1;");
+        return $servicio->fetch_object();
+    }
 }

@@ -14,7 +14,15 @@
             
     <li>División: <?=$cliente == NULL || $cliente->division == NULL ? "N/D" : $cliente->division?></li>
     <li>Estado: <?=$cliente == NULL || $cliente->baja == NULL ? "N/D" : $cliente->baja?></li>
-    <li>Servicios contratados: <?=$servicio == NULL || $servicio->servicios_contratados == NULL ? "N/D" : $servicio->servicios_contratados?></li>
+</ul>
+<h3>Servicios contratados</h3>
+<?php if(isset($servicio) && is_object($servicio)):?>
+    <a href="<?=base_url?>servicio/editar&id=<?=$servicio->id?>">Editar</a>
+<?php else:?>
+    <a href="<?=base_url?>servicio/crear&id=<?=$cliente->id?>">Añadir</a>
+<?php endif;?>
+<ul>
+    <li><?=$servicio == NULL || $servicio->servicios_contratados == NULL ? "N/D" : $servicio->servicios_contratados?></li>
 </ul>
 <h3>Datos de la web</h3>
 <a href="<?=base_url?>web/editar&id=<?=$web->id?>">Editar</a>

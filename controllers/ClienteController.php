@@ -233,7 +233,7 @@ class clienteController{
             //Guardamos el id de get en una variable:
             $id = $_GET['id'];
             $edit = true;
-            //Creamos un nuevo objeto producto y le seteamos el id:
+            //Creamos un nuevo objeto cliente y le seteamos el id:
             $cliente = new Cliente();
             $cliente->setId($id);
             //Para sacar solo uno:

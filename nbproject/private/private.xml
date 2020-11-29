@@ -12,11 +12,17 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/tlc/views/cliente/formulario_add.php</file>
-            <file>file:/C:/wamp64/www/tlc/views/cliente/guardado.php</file>
-            <file>file:/C:/wamp64/www/tlc/controllers/ClienteController.php</file>
-            <file>file:/C:/wamp64/www/tlc/views/cliente/editado.php</file>
-            <file>file:/C:/wamp64/www/tlc/models/cliente.php</file>
+            <file>file:/C:/wamp64/www/tlc/models/contacto.php</file>
+            <file>file:/C:/wamp64/www/tlc/models/web.php</file>
+            <file>file:/C:/wamp64/www/tlc/views/cliente/vista_pagina.php</file>
+            <file>file:/C:/wamp64/www/tlc/controllers/WebController.php</file>
+            <file>file:/C:/wamp64/www/tlc/views/contacto/guardado.php</file>
+            <file>file:/C:/wamp64/www/tlc/views/contacto/formulario_add.php</file>
+            <file>file:/C:/wamp64/www/tlc/views/contacto/index.php</file>
+            <file>file:/C:/wamp64/www/tlc/controllers/ContactoController.php</file>
+            <file>file:/C:/wamp64/www/tlc/views/contacto/editado.php</file>
+            <file>file:/C:/wamp64/www/tlc/views/general/vista_pagina.php</file>
+            <file>file:/C:/wamp64/www/tlc/views/web/formulario_add.php</file>
         </group>
     </open-files>
 </project-private>
