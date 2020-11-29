@@ -17,7 +17,7 @@
 </ul>
 <h3>Servicios contratados</h3>
 <?php if(isset($servicio) && is_object($servicio)):?>
-    <a href="<?=base_url?>servicio/editar&id=<?=$servicio->id?>">Editar</a>
+    <a href="<?=base_url?>servicio/editar&id=<?=$cliente->id?>">Editar</a>
 <?php else:?>
     <a href="<?=base_url?>servicio/crear&id=<?=$cliente->id?>">Añadir</a>
 <?php endif;?>
@@ -31,8 +31,9 @@
     <li>Servidor: <?=$web == NULL || $web->servidor == NULL ? "N/D" : $web->servidor?></li>
     <li>Temática: 
         <?php if($tematica->fetch_object() == NULL): ?>
-        N/D
+        N/D <a href="<?=base_url?>tematica/crear$id=<?=$cliente->id?>">Añadir</a>
         <?php else: ?>
+        <a href="<?=base_url?>tematica/editar$id=<?=$cliente->id?>">Editar temáticas</a> <a href="<?=base_url?>tematica/crear$id=<?=$cliente->id?>">Añadir nuevas temáticas</a>
         <ul>
             <?php while($tema = $tematica->fetch_object()): ?>
             <li><?=$tema->tematica?></li>
@@ -40,6 +41,10 @@
         </ul>
         <?php endif; ?>
     </li>
+</ul>
+<h3>Características de la web</h3>
+<a href="<?=base_url?>caracteristica/editar&id=<?=$web->id?>?">Editar Características de la web</a>
+<ul>
     <li>Tipo de desarrollo: <?=$caracteristica == NULL || $caracteristica->desarrollo == NULL ? "N/D" : $caracteristica->desarrollo?></li>
     <li>Tipo de web: <?=$caracteristica == NULL || $caracteristica->tipo == NULL ? "N/D" : $caracteristica->tipo?></li>
     <li>Tipo de diseño: <?=$caracteristica == NULL || $caracteristica->design == NULL ? "N/D" : $caracteristica->design?></li>

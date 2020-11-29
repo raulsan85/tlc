@@ -49,15 +49,16 @@ class ServicioController{
             //Comprobamos que el formulario no errores y en ese caso guardamos:
             if(count($errores)==0){
                 $servicio = new Servicio();
-                $servicio->setServicios_contratados($servicios_contratados);
                 //Con esto ya tendriamos el objeto montado. Ahora llamamos al metodo save que hay en el modelo:
                 if(isset($_GET['id'])){
                     $id = $_GET['id'];
                     if(isset($_GET['edit'])){
                         $servicio->setCliente_id($id);
+                        $servicio->setServicios_contratados($servicios_contratados);
                         $save = $servicio->edit();                        
                     }else{
                         $servicio->setCliente_id($id);
+                        $servicio->setServicios_contratados($servicios_contratados);
                         $save = $servicio->save();
                     }
                 }
@@ -94,15 +95,15 @@ class ServicioController{
         //Comprobamos que existe el id:
         if(isset($_GET['id'])){
             //Guardamos el id de get en una variable:
-            $id = $_GET['id'];
+            $cliente_id = $_GET['id'];
             $edit = true;
             //Creamos un nuevo objeto cliente y le seteamos el id:
             $servicio = new Servicio();
-            $servicio->setCliente_id($id);
+            $servicio->setCliente_id($cliente_id);
             //Para sacar solo uno:
             $edit_servicios = $servicio->getOneGeneral();
             $cliente = new Cliente();
-            $cliente->setId($id);
+            $cliente->setId($cliente_id);
             $cliente = $cliente->getOne();
             //Incluimos la vista de crear, para reutilizarla y cuando en esa vista 
             //se detecte que edit esta true, cambiara el titulo          

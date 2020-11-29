@@ -20,6 +20,11 @@
     <li>División: <?=$cliente->division == NULL ? "N/D" : $cliente->division?></li>
     <li>Enlace a Teamleader: <?=$cliente->teamleader == NULL ? "N/D" : $cliente->teamleader?></li>
 </ul>
+<h3>Servicios Contratados</h3>
+<a href="<?=base_url?>servicio/editar&id=<?=$cliente->id?>">Editar</a>
+<ul>
+    <li><?=!isset($servicio) || !is_object($servicio) || $servicio->servicios_contratados == "NULL" ? "N/D" : $servicio->servicios_contratados?></li>
+</ul>
 <h3>Contactos</h3>
 <a href="<?=base_url?>contacto/crear&id=<?=$cliente->id?>">Añadir Contacto</a>
 <ul>

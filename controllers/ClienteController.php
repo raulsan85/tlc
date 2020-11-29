@@ -1,6 +1,7 @@
 <?php
 
 require_once 'models/cliente.php';
+require_once 'models/servicio.php';
 
 class clienteController{
     public function index(){
@@ -26,6 +27,10 @@ class clienteController{
             
             $urls = new Cliente();
             $urls = $urls->getUrls($id);
+            
+            $servicio = new Servicio();
+            $servicio->setCliente_id($id);
+            $servicio = $servicio->getOneGeneral();
             
      
         }

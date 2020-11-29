@@ -13,5 +13,6 @@
         
 <?php endif; ?>
 
-<a href="<?=base_url?>servicio/editar&id=<?=$servicio->id?>">Editar Servicio</a>
+<a href="<?=base_url?>servicio/editar&id=<?=$cliente->id?>">Editar Servicio</a>
 <a href="<?=base_url?>servicio/index">Ver Servicios</a>
+<a href="<?=base_url?>">Inicio</a>
